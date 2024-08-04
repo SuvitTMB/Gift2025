@@ -21,25 +21,40 @@ $(document).ready(function () {
   str += '<div><img src="'+ sessionStorage.getItem("LinePicture") +'" class="add-profile" width="100px"></div>';
   str += '<div class="NameLine">'+ sessionStorage.getItem("LineName")+'</div>';
   $("#MyProfile").html(str);  
+  dbProfile = firebase.firestore().collection("CheckProfile");
+  dbNewyearMember = firebase.firestore().collection("Newyear2024_member");
+  dbNewyearData = firebase.firestore().collection("Newyear2024_data");
+  dbNewyearLog = firebase.firestore().collection("Newyear2024_log");
   Connect_DB();
   CheckData();
-*/   
-  main()
+*/
+main()
 
 });
 
 
 
 async function main() {
-  await liff.init({ liffId: "1657509542-9OErYa2L" });
+  await liff.init({ liffId: "1657509542-KGPDLak7" });
   document.getElementById("isLoggedIn").append(liff.isLoggedIn());
   if(liff.isLoggedIn()) {
-  alert("1="+liff.isLoggedIn());
     getUserProfile();
   } else {
-  alert("2="+liff.isLoggedIn());
     liff.login();
   }
+}
+
+
+async function getUserProfile() {
+  var str = "";
+  const profile = await liff.getProfile();
+  sessionStorage.setItem("LineID", profile.userId);
+  sessionStorage.setItem("LineName", profile.displayName);
+  sessionStorage.setItem("LinePicture", profile.pictureUrl);
+  str += '<div><img src="'+ sessionStorage.getItem("LinePicture") +'" class="add-profile" width="100px"></div>';
+  str += '<div class="NameLine">'+ sessionStorage.getItem("LineName")+'</div>';
+  $("#MyProfile").html(str);  
+  Connect_DB();
 }
 
 
@@ -51,21 +66,6 @@ function openWindow() {
 }
 
 
-async function getUserProfile() {
-  alert("Get Profile");
-  var str = "";
-  const profile = await liff.getProfile();
-  sessionStorage.setItem("LineID", profile.userId);
-  sessionStorage.setItem("LineName", profile.displayName);
-  sessionStorage.setItem("LinePicture", profile.pictureUrl);
-  str += '<div><img src="'+ sessionStorage.getItem("LinePicture") +'" class="add-profile" width="100px"></div>';
-  str += '<div class="NameLine">'+ sessionStorage.getItem("LineName")+'</div>';
-  $("#MyProfile").html(str);  
-  Connect_DB();
-  CheckData();
-}
-
-
 function CheckData() {
   dbProfile.where('lineID','==',sessionStorage.getItem("LineID"))
   .get().then((snapshot)=> {
@@ -73,9 +73,9 @@ function CheckData() {
       CheckFoundData = 1;
       if(doc.data().statusconfirm==1) {
         EidProfile = doc.id;
-        sessionStorage.setItem("EmpID_Newyear", doc.data().empID);
-        //sessionStorage.setItem("EmpID_Newyear", "52806");
-        //sessionStorage.setItem("EmpID_Newyear", "81615");
+        //sessionStorage.setItem("EmpID_Newyear", doc.data().empID);
+        //sessionStorage.setItem("EmpID_Newyear", "80976");
+        sessionStorage.setItem("EmpID_Newyear", "81615");
         CheckMember();
       } else {
         location.href = "https://liff.line.me/1655966947-KxrAqdyp";

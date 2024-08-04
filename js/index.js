@@ -60,6 +60,7 @@ async function getUserProfile() {
   $("#MyProfile").html(str);  
   Connect_DB();
   CheckData();
+  alert("get profile");
 }
 
 

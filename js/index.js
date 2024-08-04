@@ -52,6 +52,7 @@ function openWindow() {
 
 
 async function getUserProfile() {
+  alert("Get Profile");
   var str = "";
   const profile = await liff.getProfile();
   sessionStorage.setItem("LineID", profile.userId);

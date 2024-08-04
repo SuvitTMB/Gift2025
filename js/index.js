@@ -9,9 +9,7 @@ var CheckFound = 0;
 
 
 $(document).ready(function () {
-
-
-/*    
+/*
   sessionStorage.clear(); 
   var str = "";
   var sLineID = "Ua6b6bf745bd9bfd01a180de1a05c23b3";
@@ -23,11 +21,10 @@ $(document).ready(function () {
   str += '<div><img src="'+ sessionStorage.getItem("LinePicture") +'" class="add-profile" width="100px"></div>';
   str += '<div class="NameLine">'+ sessionStorage.getItem("LineName")+'</div>';
   $("#MyProfile").html(str);  
-
   Connect_DB();
-  CheckData();   
-*/
-  main();
+  CheckData();
+*/   
+  main()
 
 });
 
@@ -41,6 +38,14 @@ async function main() {
   } else {
     liff.login();
   }
+}
+
+
+function openWindow() {
+  liff.openWindow({
+    url: "https://line.me",
+    external: true     
+  })
 }
 
 
@@ -58,14 +63,6 @@ async function getUserProfile() {
 }
 
 
-function openWindow() {
-  liff.openWindow({
-    url: "https://line.me",
-    external: true     
-  })
-}
-
-
 function CheckData() {
   dbProfile.where('lineID','==',sessionStorage.getItem("LineID"))
   .get().then((snapshot)=> {
@@ -74,7 +71,7 @@ function CheckData() {
       if(doc.data().statusconfirm==1) {
         EidProfile = doc.id;
         //sessionStorage.setItem("EmpID_Newyear", doc.data().empID);
-        //sessionStorage.setItem("EmpID_Newyear", "52806");
+        sessionStorage.setItem("EmpID_Newyear", "52806");
         //sessionStorage.setItem("EmpID_Newyear", "81615");
         CheckMember();
       } else {

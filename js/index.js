@@ -71,8 +71,8 @@ function CheckData() {
       CheckFoundData = 1;
       if(doc.data().statusconfirm==1) {
         EidProfile = doc.id;
-        //sessionStorage.setItem("EmpID_Newyear", doc.data().empID);
-        sessionStorage.setItem("EmpID_Newyear", "52806");
+        sessionStorage.setItem("EmpID_Newyear", doc.data().empID);
+        //sessionStorage.setItem("EmpID_Newyear", "52806");
         //sessionStorage.setItem("EmpID_Newyear", "81615");
         CheckMember();
       } else {

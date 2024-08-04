@@ -15,8 +15,8 @@ $(document).ready(function () {
 
 
 async function main() {
-  //await liff.init({ liffId: "1657509542-rk7MOkgj" });
-  await liff.init({ liffId: "1657509542-9OErYa2L" });
+  await liff.init({ liffId: "1657509542-rk7MOkgj" });
+  //await liff.init({ liffId: "1657509542-9OErYa2L" });
   document.getElementById("isLoggedIn").append(liff.isLoggedIn());
   if(liff.isLoggedIn()) {
   //alert("1="+liff.isLoggedIn());

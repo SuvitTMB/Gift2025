@@ -35,7 +35,7 @@ main()
 
 
 async function main() {
-  await liff.init({ liffId: "1657509542-KGPDLak7" });
+  await liff.init({ liffId: "1657509542-9OErYa2L" });
   document.getElementById("isLoggedIn").append(liff.isLoggedIn());
   if(liff.isLoggedIn()) {
     getUserProfile();
@@ -73,9 +73,9 @@ function CheckData() {
       CheckFoundData = 1;
       if(doc.data().statusconfirm==1) {
         EidProfile = doc.id;
-        //sessionStorage.setItem("EmpID_Newyear", doc.data().empID);
+        sessionStorage.setItem("EmpID_Newyear", doc.data().empID);
         //sessionStorage.setItem("EmpID_Newyear", "80976");
-        sessionStorage.setItem("EmpID_Newyear", "81615");
+        //sessionStorage.setItem("EmpID_Newyear", "81615");
         CheckMember();
       } else {
         location.href = "https://liff.line.me/1655966947-KxrAqdyp";

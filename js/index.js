@@ -38,10 +38,10 @@ async function main() {
   await liff.init({ liffId: "1657509542-rk7MOkgj" });
   document.getElementById("isLoggedIn").append(liff.isLoggedIn());
   if(liff.isLoggedIn()) {
-  alert("1="+liff.isLoggedIn());
+  //alert("1="+liff.isLoggedIn());
     getUserProfile();
   } else {
-  alert("2="+liff.isLoggedIn());
+  //alert("2="+liff.isLoggedIn());
     liff.login();
   }
 }
@@ -53,7 +53,7 @@ async function getUserProfile() {
   sessionStorage.setItem("LineID", profile.userId);
   sessionStorage.setItem("LineName", profile.displayName);
   sessionStorage.setItem("LinePicture", profile.pictureUrl);
-  alert("Get Profile="+profile.userId+"---"+profile.displayName+"---"+profile.pictureUrl);
+  //alert("Get Profile="+profile.userId+"---"+profile.displayName+"---"+profile.pictureUrl);
   str += '<div><img src="'+ sessionStorage.getItem("LinePicture") +'" class="add-profile" width="100px"></div>';
   str += '<div class="NameLine">'+ sessionStorage.getItem("LineName")+'</div>';
   $("#MyProfile").html(str);  

@@ -53,11 +53,11 @@ async function getUserProfile() {
   sessionStorage.setItem("LineID", profile.userId);
   sessionStorage.setItem("LineName", profile.displayName);
   sessionStorage.setItem("LinePicture", profile.pictureUrl);
-  alert("Get Profile="+profile.userId);
+  alert("Get Profile="+profile.userId+"---"+profile.displayName+"---"+profile.pictureUrl);
   str += '<div><img src="'+ sessionStorage.getItem("LinePicture") +'" class="add-profile" width="100px"></div>';
   str += '<div class="NameLine">'+ sessionStorage.getItem("LineName")+'</div>';
   $("#MyProfile").html(str);  
-  Connect_DB();
+  //Connect_DB();
 }
 
 

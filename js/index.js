@@ -35,7 +35,7 @@ main()
 
 
 async function main() {
-  await liff.init({ liffId: "1657509542-9OErYa2L" });
+  await liff.init({ liffId: "1657509542-rk7MOkgj" });
   document.getElementById("isLoggedIn").append(liff.isLoggedIn());
   if(liff.isLoggedIn()) {
   alert("1="+liff.isLoggedIn());
@@ -48,12 +48,12 @@ async function main() {
 
 
 async function getUserProfile() {
-  alert("Get Profile");
   var str = "";
   const profile = await liff.getProfile();
   sessionStorage.setItem("LineID", profile.userId);
   sessionStorage.setItem("LineName", profile.displayName);
   sessionStorage.setItem("LinePicture", profile.pictureUrl);
+  alert("Get Profile="+profile.userId);
   str += '<div><img src="'+ sessionStorage.getItem("LinePicture") +'" class="add-profile" width="100px"></div>';
   str += '<div class="NameLine">'+ sessionStorage.getItem("LineName")+'</div>';
   $("#MyProfile").html(str);  

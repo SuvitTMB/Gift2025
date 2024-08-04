@@ -34,8 +34,10 @@ async function main() {
   await liff.init({ liffId: "1657509542-9OErYa2L" });
   document.getElementById("isLoggedIn").append(liff.isLoggedIn());
   if(liff.isLoggedIn()) {
+  alert("1="+liff.isLoggedIn());
     getUserProfile();
   } else {
+  alert("2="+liff.isLoggedIn());
     liff.login();
   }
 }
@@ -60,7 +62,6 @@ async function getUserProfile() {
   $("#MyProfile").html(str);  
   Connect_DB();
   CheckData();
-  alert("get profile");
 }
 
 

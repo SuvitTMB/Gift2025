@@ -1,1 +1,639 @@
-var _0x13634a=_0x4232;(function(_0x21de0e,_0x21a34c){var _0x20d61e=_0x4232,_0x1b28b4=_0x21de0e();while(!![]){try{var _0x4ff57b=-parseInt(_0x20d61e(0x185))/0x1+-parseInt(_0x20d61e(0x1c8))/0x2*(parseInt(_0x20d61e(0x1ea))/0x3)+parseInt(_0x20d61e(0x255))/0x4+-parseInt(_0x20d61e(0x1a9))/0x5*(-parseInt(_0x20d61e(0x19b))/0x6)+-parseInt(_0x20d61e(0x23e))/0x7*(-parseInt(_0x20d61e(0x204))/0x8)+parseInt(_0x20d61e(0x1fb))/0x9+parseInt(_0x20d61e(0x1b5))/0xa*(parseInt(_0x20d61e(0x257))/0xb);if(_0x4ff57b===_0x21a34c)break;else _0x1b28b4['push'](_0x1b28b4['shift']());}catch(_0x46a140){_0x1b28b4['push'](_0x1b28b4['shift']());}}}(_0x441b,0xb413b));var dateString=new Date()[_0x13634a(0x275)](_0x13634a(0x23f),{'timeZone':_0x13634a(0x1d7)}),today=new Date(),dd=String(today['getDate']())[_0x13634a(0x26a)](0x2,'0'),mm=String(today['getMonth']()+0x1)['padStart'](0x2,'0'),yyyy=today['getFullYear']()+0x21f,gID,gStatus,xMaxGift=0x0,xNewyearLimit=0x16,xOrderLimit=0xfa,xBMStatus=0x0,xSendZoneApprove=0x0,zBM_Address='',zBM_Phone='',zEmpID_Staff1='',zEmpName_Staff1='',zPhone_Staff1='',zEmpID_Staff2='',zEmpName_Staff2='',zPhone_Staff2='',zZoneMemoToBM='';$(document)['ready'](function(){var _0x345951=_0x13634a;sessionStorage[_0x345951(0x205)](_0x345951(0x266))==null&&(location['href']=_0x345951(0x1a0)),gID=getParameterByName('gid'),gStatus=getParameterByName('gStatus'),Connect_DB(),CheckBudget(),GetUserOrder(gID),LoadGiftStock();});function getParameterByName(_0x36250f,_0x584ada){var _0x451e9f=_0x13634a;str='';if(!_0x584ada)_0x584ada=window['location'][_0x451e9f(0x1b6)];_0x36250f=_0x36250f[_0x451e9f(0x24d)](/[\[\]]/g,_0x451e9f(0x213));var _0x420a64=new RegExp(_0x451e9f(0x246)+_0x36250f+'(=([^&#]*)|&|#|$)'),_0x5b2845=_0x420a64[_0x451e9f(0x1a2)](_0x584ada);if(!_0x5b2845)return null;if(!_0x5b2845[0x2])return'';return decodeURIComponent(_0x5b2845[0x2][_0x451e9f(0x24d)](/\+/g,'\x20'));}function LoadDetail(){var _0x11cf62=_0x13634a;dbNewyearData[_0x11cf62(0x1b9)](firebase['firestore'][_0x11cf62(0x20b)][_0x11cf62(0x1ad)](),'==',gID)[_0x11cf62(0x170)]()['then'](_0x5b9652=>{var _0x55ebda=_0x11cf62;_0x5b9652[_0x55ebda(0x1ee)](_0x14d5b3=>{var _0x589e5f=_0x55ebda;xBMStatus=_0x14d5b3[_0x589e5f(0x20e)]()[_0x589e5f(0x211)],zBM_Address=_0x14d5b3['data']()[_0x589e5f(0x20d)],zBM_Phone=_0x14d5b3['data']()['BM_Phone'],zEmpID_Staff1=_0x14d5b3[_0x589e5f(0x20e)]()[_0x589e5f(0x261)],zEmpName_Staff1=_0x14d5b3['data']()[_0x589e5f(0x23c)],zPhone_Staff1=_0x14d5b3[_0x589e5f(0x20e)]()[_0x589e5f(0x239)],zEmpID_Staff2=_0x14d5b3[_0x589e5f(0x20e)]()[_0x589e5f(0x177)],zEmpName_Staff2=_0x14d5b3[_0x589e5f(0x20e)]()['EmpName_Staff2'],zPhone_Staff2=_0x14d5b3[_0x589e5f(0x20e)]()[_0x589e5f(0x241)],zZoneMemoToBM=_0x14d5b3['data']()[_0x589e5f(0x1cb)];});});}var xBMAllocated=0x0,xBMEmpID='',xBMName='',xBranchName='',xZone='',xRH='';function CheckBudget(){var _0x285ed5=_0x13634a,_0x2cf9f2='',_0x2cc0fb='';_0x2cf9f2+=_0x285ed5(0x267),_0x2cf9f2+=_0x285ed5(0x24e),_0x2cf9f2+=_0x285ed5(0x17c),dbNewyearData['where'](firebase[_0x285ed5(0x1b8)][_0x285ed5(0x20b)][_0x285ed5(0x1ad)](),'==',gID)[_0x285ed5(0x170)]()['then'](_0x1e747a=>{var _0x18c95c=_0x285ed5;_0x1e747a[_0x18c95c(0x1ee)](_0x2aea2f=>{var _0x2d8a5e=_0x18c95c;xBMStatus=_0x2aea2f[_0x2d8a5e(0x20e)]()[_0x2d8a5e(0x211)];if(_0x2aea2f[_0x2d8a5e(0x20e)]()[_0x2d8a5e(0x211)]==0x0)xMsg=_0x2d8a5e(0x18e),_0x2cc0fb=_0x2d8a5e(0x1fc);else{if(_0x2aea2f['data']()['BMStatus']==0x1)xMsg='กำลัง<br>สั่งจอง',_0x2cc0fb='<font\x20color=\x27#f68b1f\x27><b>อยู่ระหว่างการสั่งจอง</b></font>';else{if(_0x2aea2f[_0x2d8a5e(0x20e)]()['BMStatus']==0x2)xMsg=_0x2d8a5e(0x1d9),_0x2cc0fb=_0x2d8a5e(0x25d);else{if(_0x2aea2f[_0x2d8a5e(0x20e)]()['BMStatus']==0x3)xMsg='โซนแจ้ง<br>ทบทวน',_0x2cc0fb=_0x2d8a5e(0x1f1);else{if(_0x2aea2f[_0x2d8a5e(0x20e)]()[_0x2d8a5e(0x211)]==0x8)xMsg='โซนแจ้ง<br>ยกเลิก',_0x2cc0fb=_0x2d8a5e(0x1e1);else _0x2aea2f[_0x2d8a5e(0x20e)]()[_0x2d8a5e(0x211)]==0x9&&(xMsg=_0x2d8a5e(0x270),_0x2cc0fb=_0x2d8a5e(0x186));}}}}xBMEmpID=_0x2aea2f[_0x2d8a5e(0x20e)]()[_0x2d8a5e(0x1e0)],xBMName=_0x2aea2f[_0x2d8a5e(0x20e)]()[_0x2d8a5e(0x23a)],xBranchName=_0x2aea2f[_0x2d8a5e(0x20e)]()['BranchName']+'\x20('+_0x2aea2f['data']()[_0x2d8a5e(0x200)]+')',xZone=_0x2aea2f['data']()[_0x2d8a5e(0x1fd)],xRH=_0x2aea2f[_0x2d8a5e(0x20e)]()[_0x2d8a5e(0x1bd)],_0x2cf9f2+=_0x2d8a5e(0x181),_0x2cf9f2+=_0x2d8a5e(0x25e),_0x2cf9f2+='<td\x20style=\x22text-align:\x20center;background:#c4d0e2;\x22><b>'+_0x2aea2f[_0x2d8a5e(0x20e)]()['BranchName']+'\x20('+_0x2aea2f[_0x2d8a5e(0x20e)]()[_0x2d8a5e(0x200)]+_0x2d8a5e(0x1f5),_0x2cf9f2+='<td\x20style=\x22text-align:\x20left;\x20line-height:\x201.2;background-color:#d5dae2\x22>BM</td>',_0x2cf9f2+='<td\x20style=\x22text-align:\x20center;background:#c4d0e2;\x22><b>'+_0x2aea2f[_0x2d8a5e(0x20e)]()[_0x2d8a5e(0x23a)]+_0x2d8a5e(0x244),_0x2cf9f2+=_0x2d8a5e(0x26f),_0x2cf9f2+=_0x2d8a5e(0x1df)+_0x2cc0fb+_0x2d8a5e(0x244),_0x2cf9f2+=_0x2d8a5e(0x220),_0x2cf9f2+='<td\x20style=\x22text-align:\x20center;background:#c4d0e2;\x22><b>'+numberWithCommas(_0x2aea2f['data']()[_0x2d8a5e(0x1dc)])+'\x20บาท</b></td></tr>',_0x2cf9f2+='<td\x20style=\x22text-align:\x20left;\x20line-height:\x201.2;background-color:#d5dae2\x22>สั่งไปแล้ว</td>',_0x2cf9f2+=_0x2d8a5e(0x1df)+numberWithCommas(_0x2aea2f[_0x2d8a5e(0x20e)]()['UseBudget'])+_0x2d8a5e(0x1cd),xBMAllocated=_0x2aea2f[_0x2d8a5e(0x20e)]()['BMAllocated'];}),_0x2cf9f2+='</tbody></table></div>',_0x2cf9f2+='<div\x20class=\x22clr\x22></div>',$(_0x18c95c(0x190))['html'](_0x2cf9f2);});}var GetOrderArr=[];function GetUserOrder(_0x5db292){var _0x527b3f=_0x13634a,_0x405338=0x0;dbGiftOrder['where']('RefID','==',_0x5db292)[_0x527b3f(0x170)]()[_0x527b3f(0x207)](_0x23c18d=>{var _0x2d2a07=_0x527b3f;_0x23c18d[_0x2d2a07(0x1ee)](_0x2598ec=>{var _0x3d36fa=_0x2d2a07;GetOrderArr[_0x3d36fa(0x1ff)]({'RefGift':_0x2598ec[_0x3d36fa(0x20e)]()['RefGift'],'StockName':_0x2598ec[_0x3d36fa(0x20e)]()['StockName'],'OrderGift':_0x2598ec[_0x3d36fa(0x20e)]()[_0x3d36fa(0x1c5)],'ID':_0x2598ec['id']});});});}var xCheckOrder=0x0,xCountRec=0x0,xSumAllPrice=0x0,xSumUnitPrice=0x0,xTotalUnitPrice=0x0,xBalance=0x0;function _0x441b(){var _0x562995=['คลิก<br>สั่งจอง','delete','#DisplayBudget','#DisplayGroup2','<div\x20class=\x22btn-t2\x22\x20onclick=location.href=\x22home.html\x22\x20type=\x22submit\x22\x20style=\x22margin-top:20px;\x22>ไม่บันทึกรายการ</div>','UnitPrice14','\x20บาท</b><br>ยอดสั่งของขวัญของคุณ\x20<b>','home.html','StockGroup','OrderGiftID6','#WarningText','#SumUnitPrice13','<div\x20class=\x22btn-z1\x22\x20onclick=\x22SaveDetail(\x27','6uMugPj','<div\x20class=\x22btn-t2\x22\x20onclick=\x22CloseAll()\x22\x20style=\x22margin:15px\x20auto\x2025px\x20auto;\x22>ปิดหน้าต่างนี้</div>','\x27)\x22\x20style=\x22margin:10px\x2010px\x2010px\x20auto;min-width:100px;\x22>ดูรายการสั่งซื้อ<br>ของขวัญปีใหม่</div>','OrderGiftID16','\x22\x20style=\x22text-align:left;\x22></div>','index.html','<option\x20onchange=\x22CalGift(','exec','OrderGiftID0','<div\x20class=\x22btn-z0\x22\x20onclick=\x22GotoOrder()\x22\x20style=\x22margin:10px\x2010px\x2010px\x20auto;min-width:50px;\x22>กลับ<br>หน้าแรก</div>','#SumUnitPrice17','<center><div\x20class=\x22btn-t1\x22\x20onclick=\x22GotoOrder()\x22>ปิดหน้าต่างนี้</div></center>','<div\x20class=\x22btn-z3\x22\x20onclick=\x22SaveToZone(\x27','split','2291755iVUowI','<div><img\x20src=\x22','UnitPrice0','asc','documentId','\x27)\x22><img\x20src=\x22./img/icon-02.png\x22\x20style=\x22width:20px;\x22></div></th>','<div\x20style=\x22text-align:left;\x20margin:10px\x200\x202px\x205px;\x22>ผู้รับสินค้า\x202\x20(กรอกชื่อ-นามสกุล)</div><input\x20type=\x22text\x22\x20id=\x22txtEmpName_Staff2\x22\x20value=\x22','<div\x20style=\x22font-weight:600;\x22>รายการอยู่ระหว่างการขออนุมัติการสั่งจองของขวัญปีใหม่<br></div>','<center><div\x20class=\x22btn-t22a\x22\x20style=\x22margin:30px\x20auto\x2020px\x20auto;\x22><b>รายการสั่งซื้อของขวัญปีใหม่ของสาขา</b></div></center>','<div\x20style=\x22text-align:left;\x20margin:10px\x200\x202px\x205px;\x22>ผู้รับสินค้า\x201\x20(กรอกรหัสพนักงาน)</div><input\x20type=\x22text\x22\x20id=\x22txtEmpID_Staff1\x22\x20value=\x22','add','<div\x20style=\x22font-weight:600;\x22>รายการอยู่ระหว่างการขออนุมัติจากโซน<br></div>','1260570QJbCNZ','href','</tbody></table>','firestore','where','<th\x20scope=\x22col\x22>รายการ</th><th\x20scope=\x22col\x22>จำนวน</th><th\x20scope=\x22col\x22>ราคา</th></tr></thead><tbody>','<div\x20style=\x22font-weight:400;padding-top:10px;\x22>ราคาขายต่อชิ้น\x20<b>','PointRedeem','EmpRH','OrderGiftID12','</tbody></table></div>','\x22\x20style=\x22color:#fff;background:#002d63;\x22></div></div>','OrderGiftID10','\x27)\x22\x20style=\x22width:56%;margin:-10px\x20auto\x2020px\x20auto;display:none\x22\x20id=\x22idSendZoneApprove\x22>ส่งคำขอ<br>ให้โซนอนุมัติ</div>','getElementById','</td></tr></tbody></table>','OrderGift','#SumUnitPrice14','<div\x20class=\x22btn-z1\x22\x20onclick=\x22GotoOrder()\x22\x20style=\x22margin:10px\x2010px\x2020px\x20auto;min-width:100px;\x22>กลับไป<br>หน้าแรก</div>','170276oggyDb','\x27)\x22\x20style=\x22margin:10px\x2010px\x2010px\x20auto;min-width:100px;\x22>ยกเลิก<br>รายการสั่งซื้อ</div>','ShowNav','ZoneMemoToBM','<div\x20class=\x22clr\x22></div>','\x20บาท</b></td></tr>','\x22\x20value=\x22','<div\x20style=\x22margin-top:4px;\x22>','log','RefGift','</div><div\x20style=\x22margin-top:30px;padding-top:20px;margin-left:3px;\x22>','value','StockName','\x20บาท</b></div>','#SumUnitPrice4','Asia/Jakarta','OrderGiftID2','ส่งโซน<br>ขออนุมัติ','<div\x20class=\x22btn-z1\x22\x20onclick=\x22SaveOrder(\x27','UnitPrice16','BMAllocated','idSendZoneApprove','none','<td\x20style=\x22text-align:\x20center;background:#c4d0e2;\x22><b>','BMEmpID','<font\x20color=\x27#ff0000\x27><b>โซนแจ้งขอยกเลิกการจอง</b></font>','\x27)\x22\x20style=\x22margin:10px\x2010px\x2010px\x20auto;min-width:100px;\x22>ดูรายละเอียด<br>รายการสั่งซื้อ</div>','<div\x20onclick=\x22DisplayGift(\x27','<div\x20class=\x22btn-t22a\x22\x20style=\x22margin:30px\x20auto;\x20background:#ff0000\x20!important;\x20border:2px\x20solid\x20#cc3c3c\x20!important;\x22>ยืนยันการลบรายการของคุณ</div>','</b></font></div>','<div><br><br><font\x20color=\x22#ff0000\x22><b>ระบบได้ทำการลบรายการสั่งจองของขวัญ<br>ของคุณเรียบร้อยแล้ว</b></font><br><br></div>','OrderGiftID','</textarea></center></div>','#SumUnitPrice5','39tNwFHc','<div\x20id=\x22ShowSaveData\x22\x20style=\x22display:block;margin-bottom:\x2020px;\x22>','<tr><th\x20scope=\x22row\x22\x20style=\x22text-align:\x20center;\x22>','StockView','forEach','OrderGiftID7','filter','<font\x20color=\x27#ff0000\x27><b>โซนแจ้งทบทวนใหม่</b></font>','UnitPrice3','\x22\x20style=\x22color:#fff;background:#0056ff;\x22></div></div>','<div\x20class=\x22btn-z0\x22\x20onclick=\x22ViewOrder(\x27',')</b></td></tr>','\x22\x20readonly></div>','<div\x20style=\x22font-weight:600;\x22>','OrderGiftID14','#SumUnitPrice1','\x27)\x22\x20style=\x22margin:10px\x2010px\x2010px\x20auto;min-width:100px;\x22>บันทึกดร๊าฟ<br>รายการสั่งซื้อ</div>','416862cxmAtb','<font\x20color=\x27#555555\x27><b>ยังไม่ได้สั่งจอง</b></font>','EmpZone','id05','push','BranchID',')\x22\x20value=\x22','update','OrderGiftID11','8EagVRV','getItem','<div\x20class=\x22btn-t22a\x22\x20style=\x22margin:30px\x20auto;\x20background:#ff0000\x20!important;\x20border:2px\x20solid\x20#cc3c3c\x20!important;\x22>ข้อความแจ้งเตือน</div>','then','</div>','txtEmpID_Staff2','#SumUnitPrice11','FieldPath','UnitPrice8','BM_Address','data','<div\x20class=\x22btn-t2\x22\x20onclick=\x22CloseAll()\x22\x20style=\x22margin:25px\x20auto;\x22>ปิดหน้าต่างนี้</div>','<div\x20class=\x22box-price\x22><div\x20style=\x22font-size:12px;font-weight:600;\x22>จำนวนเงินที่สั่ง</div><input\x20type=\x22text\x22\x20value=\x22','BMStatus','<tr><td\x20style=\x22text-align:\x20center;font-weight:\x20600;background:#f1f1f1;\x22>งบประมาณคงเหลือ</td><td\x20colspan=\x222\x22\x20style=\x22text-align:\x20right;font-weight:\x20600;background:#0056ff;\x22>','\x5c$&','<option\x20onchange=\x22CalGift(0)\x22\x20value=\x220\x22>รอการสั่ง</option>','#SumUnitPrice16','<div\x20class=\x22btn-t22a\x22\x20style=\x22margin-top:15px;\x22>บันทึกการสั่งจองของขวัญปีใหม่</div>','\x22\x20hidden>','display','<td\x20style=\x22text-align:\x20right;\x20font-weight:\x20600;\x22>','txtBM_Phone','id01','\x22\x20selected>','UnitPrice11','orderBy','txtPhone_Staff2','<td\x20style=\x22text-align:\x20left;\x20line-height:\x201.2;background-color:#d5dae2\x22>งบสั่งจอง</td>','<div\x20style=\x22text-align:left;\x20margin:10px\x200\x202px\x205px;\x22>ผู้รับสินค้า\x202\x20(กรอกหมายเลขโทรศัพท์)</div><input\x20type=\x22text\x22\x20id=\x22txtPhone_Staff2\x22\x20value=\x22','<div>ระบบได้ทำการบันทึกรายการนี้เรียบร้อยแล้ว<br>หากไม่มีการแก้ไขรายการให้ทำการ<br><br>กดปุ่ม\x20...\x20<b>ส่งคำขอให้โซนอนุมัติ</b><br><br><font\x20color=\x22#ff0000\x22><b>ซึ่งจะมีผลให้สาขา<br>ไม่สามารถทำการแก้ไขรายการได้แล้ว</b></font></div>','<tr><td\x20style=\x22text-align:\x20center;font-weight:\x20600;background:#f1f1f1;\x22>ยอดรวมการสั่งซื้อ</td><td\x20colspan=\x222\x22\x20style=\x22text-align:\x20right;font-weight:\x20600;background:#f68b1f;\x22>','StockImg','<hr><div\x20style=\x22margin-top:-10px;text-align:left;padding-bottom:\x2010px;line-height:1.3;\x20padding-left:10px;\x22>BM\x20:\x20<b>','doc','ordergift.html?gid=','<div\x20class=\x22btn-z2\x22\x20onclick=\x22CloseAll()\x22\x20style=\x22margin:20px\x2010px\x2020px\x20auto;\x22>ทำการแก้ไข<br>ใหม่อีกครั้ง</div>','<div\x20class=\x22btn-z0\x22\x20style=\x22margin:10px\x2010px\x2020px\x20auto;min-width:100px;\x22>กรุณาสั่ง<br>ของขวัญปีใหม่</div>','txtBM_Address','OrderGiftID15','RefID','<div\x20class=\x22btn-z3\x22\x20onclick=\x22DeleteAllOrder(\x27','<div\x20class=\x22box-price\x22><div\x20style=\x22font-size:12px;font-weight:600;\x22>งบประมาณที่ได้รับ</div><input\x20type=\x22text\x22\x20value=\x22','UnitPrice6','\x20บาท</font></b><br><br><font\x20color=\x22#ff0000\x22><b>ระบบจะไม่อนุญาตให้บันทึกรายการสั่งจอง</b></font></div>','</td></tr>','txtEmpName_Staff1','\x20บาท</b><br>คุณสั่งเกินไปแล้ว\x20<b><font\x20color=\x22#ff0000\x22>','UnitPrice10','#SumUnitPrice6','<center><div\x20class=\x22btn-t3\x22\x20style=\x22margin-top:25px;\x22><b>รายละเอียดของขวัญปีใหม่</b></div>','<td\x20style=\x22text-align:\x20right;\x20font-weight:\x20600;background:#73a0f4;\x22>','OrderGiftID13','Phone_Staff1','BMName','<tr><td\x20style=\x22text-align:\x20center;font-weight:\x20600;background:#f1f1f1;\x22>รวมยอดการสั่งจองของขวัญ</td><td\x20colspan=\x222\x22\x20style=\x22text-align:\x20right;font-weight:\x20600;background:#31e85b;\x22>','EmpName_Staff1','length','6547891dTiEJU','en-US','UnitPrice9','Phone_Staff2','<tr><td\x20style=\x22text-align:\x20center;font-weight:\x20600;background:#f1f1f1;\x22>รวมทั้งหมด</td><td\x20colspan=\x222\x22\x20style=\x22text-align:\x20right;font-weight:\x20600;background:#31e85b;\x22>','<div\x20style=\x22text-align:left;\x20margin:10px\x200\x202px\x205px;\x22>ผู้รับสินค้า\x201\x20(กรอกชื่อ-นามสกุล)</div><input\x20type=\x22text\x22\x20id=\x22txtEmpName_Staff1\x22\x20value=\x22','</b></td></tr>','<div\x20class=\x22txtmsg\x22>ขณะนี้รายการการจัดซื้อของขวัญของสาขา\x20อยู่ระหว่างการอนุมัติโดยโซนที่ดูแลสาขาของท่าน\x20กรุณารอการอนุมัติ</div>','[?&]','StockDetail','</select></div>','<div\x20class=\x22box-price\x22><div\x20style=\x22font-size:12px;\x22>เลือกจำนวนชิ้น</div>','gID=','<div\x20class=\x22btn-z9\x22\x20onclick=\x22ViewOrder(\x27','UnitPrice','replace','<thead><tr\x20style=\x22text-align:\x20center;background-color:\x20#93a3c1;\x22>','toString','<input\x20type=\x22text\x22\x20id=\x22NameGift','<tr><td\x20style=\x22text-align:\x20center;font-weight:\x20600;background:#f1f1f1;\x22>งบประมาณที่ได้รับ</td><td\x20colspan=\x222\x22\x20style=\x22text-align:\x20right;font-weight:\x20600;background:#f68b1f;\x22>','<div\x20class=\x22btn-z0\x22\x20onclick=\x22CloseAll()\x22\x20style=\x22margin:10px\x2010px\x2010px\x20auto;min-width:50px;\x22>ปิด<br>หน้าต่าง</div>','NameGift','UnitPrice12','3477300qaTdPi','id02','11ddVoRi','#SumUnitPrice9','UnitPrice7','OrderGiftID3','<tr><td\x20style=\x22text-align:\x20center;font-weight:\x20600;background:#f1f1f1;\x22>งบประมาณที่ได้รับ</td><td\x20colspan=\x222\x22\x20style=\x22text-align:\x20right;font-weight:\x20600;background:#e831e8;\x22>','OrderGiftID9','<font\x20color=\x27#0056ff\x27><b>ส่งโซนอนุมัติ</b></font>','<td\x20style=\x22text-align:\x20left;\x20line-height:\x201.2;background-color:#d5dae2\x22>สาขา</td>','\x22\x20style=\x22color:#fff;background:#ff0000;\x22></div></div>','<div\x20class=\x22box-price\x22><div\x20style=\x22font-size:12px;font-weight:600;\x22>ยอดงบคงเหลือ</div><input\x20type=\x22text\x22\x20value=\x22','EmpID_Staff1','\x20ชิ้น</option>','<div\x20class=\x22btn-z0\x22\x20onclick=\x22CloseAll()\x22\x20style=\x22margin:20px\x2010px\x2020px\x20auto;\x22>ปิดหน้าต่าง<br>รายการนี้</div>','<input\x20type=\x22text\x22\x20id=\x22OrderGiftRefID','#SumUnitPrice0','EmpID_Newyear','<table\x20class=\x22table\x20table-bordered\x22\x20class=\x22font13\x22\x20style=\x22margin-top:20px;\x20background-color:\x20#fff;\x22>','<div\x20style=\x22font-weight:400;\x20text-align:left;\x20padding-top:10px;\x22>','</td>','padStart','<div\x20style=\x22line-height:1.3;\x20text-align:left;\x20font-weight:600;\x22>สาขา\x20:\x20','UnitPrice4','<tr><th\x20scope=\x22row\x22\x20style=\x22text-align:\x20left;\x22>','\x27)\x22><font\x20color=\x22#0056ff\x22><b>','<td\x20style=\x22text-align:\x20left;\x20line-height:\x201.2;background-color:#d5dae2\x22>สถานะ</td>','โซนแจ้ง<br>อนุมัติ','html','#SumUnitPrice10','#DeleteingText','txtEmpID_Staff1','toLocaleString','#TotalGift','<table\x20class=\x22table\x20table-bordered\x22\x20class=\x22font13\x22\x20style=\x22background-color:\x20#fff;\x20margin-top:20px;\x22>','get','<div\x20class=\x22btn-t22a\x22\x20style=\x22margin-top:15px;\x22>นำส่งรายการสั่งซื้อให้โซนอนุมัติ</div>','addClass','<div\x20class=\x22btn-t2\x22\x20onclick=\x22XLoadDetail()\x22\x20style=\x22margin:25px\x20auto;\x22>ปิดหน้าต่างนี้</div>','txtEmpName_Staff2','style','</b><br>Branch\x20:\x20<b>','EmpID_Staff2','<table\x20class=\x22table\x20table-bordered\x22\x20class=\x22font13\x22\x20style=\x22background-color:\x20#fff;\x22>','\x22\x20class=\x22form-control\x22>','OrderGiftID17','id04','<th\x20scope=\x22col\x22>รายการ</th><th\x20scope=\x22col\x22>รายละเอียด</th></tr></thead><tbody>','OrderGiftID8','id03','UnitPrice1','#DisplaySaveGift','<tr>','block','<div\x20class=\x22box-price\x22><div\x20style=\x22font-size:12px;\x22>ราคาต่อชิ้น</div><input\x20type=\x22text\x22\x20id=\x22UnitPrice','<select\x20name=\x22OrderGiftID\x22\x20onchange=\x22CalGift()\x22\x20id=\x22OrderGiftID','591075jRigiM','<font\x20color=\x27#28c92a\x27><b>โซนอนุมัติเรียบร้อยแล้ว</b></font>','<div\x20class=\x22box-price\x22><div\x20style=\x22font-size:12px;\x22>จำนวนเงินที่ใช้</div><div\x20class=\x22box-order\x22\x20id=\x22SumUnitPrice','</th>','\x22\x20style=\x22width:100%;margin-top:18px;margin-bottom:\x2010px;\x22></div></center>','<div\x20class=\x22btn-t22a\x22\x20style=\x22margin-top:15px;\x22>รายละเอียดเพิ่มเติม</div><div\x20class=\x22clr\x22></div>','OrderGiftID4','OrderGiftID5','#DisplayGift'];_0x441b=function(){return _0x562995;};return _0x441b();}function LoadGiftStock(){var _0x5688a5=_0x13634a;LoadDetail();var _0x3846a2='',_0x432bd8=0x0,_0x5dcb13=0x0;xSumAllPrice=0x0,xSumUnitPrice=0x0,xMaxGift=0x0,xCalSell=0x0,_0x3846a2+=_0x5688a5(0x178),_0x3846a2+=_0x5688a5(0x24e),_0x3846a2+='<th\x20scope=\x22col\x22>No.</th><th\x20scope=\x22col\x22>รายการของขวัญ</th></tr></thead><tbody>',dbGiftStock[_0x5688a5(0x1b9)]('StockStatus','==',0x1)['orderBy'](_0x5688a5(0x196),'asc')[_0x5688a5(0x21e)]('StockOrder',_0x5688a5(0x1ac))[_0x5688a5(0x170)]()[_0x5688a5(0x207)](_0x43f0e5=>{var _0x56b6ee=_0x5688a5;_0x43f0e5[_0x56b6ee(0x1ee)](_0x5e5f81=>{var _0x46064d=_0x56b6ee;const _0x3a14e4=GetOrderArr[_0x46064d(0x1f0)](_0x26f6f4=>{var _0x3fd87a=_0x46064d;return _0x26f6f4[_0x3fd87a(0x1d1)]===_0x5e5f81['id'];});xResults=0x0,xCheckLine=0x0;_0x3a14e4[0x0]!=undefined&&(xResults=_0x3a14e4[0x0][_0x46064d(0x1c5)],xCheckOrder=parseFloat(xCheckOrder)+parseFloat(_0x3a14e4[0x0][_0x46064d(0x1c5)]));_0x3846a2+=_0x46064d(0x1ec)+(_0x432bd8+0x1)+_0x46064d(0x1e3)+_0x5e5f81['id']+_0x46064d(0x1ae),_0x3846a2+='<td\x20style=\x22text-align:\x20left;\x20line-height:\x201.2;\x22><div\x20onclick=\x22DisplayGift(\x27'+_0x5e5f81['id']+_0x46064d(0x26e)+_0x5e5f81[_0x46064d(0x20e)]()[_0x46064d(0x1d4)]+_0x46064d(0x1e5),_0x3846a2+=_0x46064d(0x1cf),_0x3846a2+=_0x46064d(0x249),_0x3846a2+=_0x46064d(0x184)+_0x432bd8+_0x46064d(0x1ce)+xResults+_0x46064d(0x179);if(_0x5e5f81[_0x46064d(0x20e)]()[_0x46064d(0x1ed)]==0x1)for(let _0x917dc1=0x0;_0x917dc1<xNewyearLimit;_0x917dc1++){_0x917dc1==0x0?_0x3846a2+=_0x46064d(0x214):xResults==_0x917dc1*0x32?(xCheckLine=0x1,_0x3846a2+=_0x46064d(0x1a1)+_0x917dc1+_0x46064d(0x201)+_0x3a14e4[0x0][_0x46064d(0x1c5)]+'\x22\x20selected>'+_0x3a14e4[0x0][_0x46064d(0x1c5)]+_0x46064d(0x262)):_0x3846a2+=_0x46064d(0x1a1)+_0x917dc1+_0x46064d(0x201)+_0x917dc1*0x32+'\x22>'+_0x917dc1*0x32+_0x46064d(0x262);}else{if(_0x5e5f81[_0x46064d(0x20e)]()['StockView']==0x2)for(let _0x24f453=0x0;_0x24f453<xOrderLimit+0x1;_0x24f453++){_0x24f453==0x0?_0x3846a2+='<option\x20onchange=\x22CalGift(0)\x22\x20value=\x220\x22>รอการสั่ง</option>':xResults==_0x24f453?(xCheckLine=0x1,_0x3846a2+=_0x46064d(0x1a1)+_0x24f453+')\x22\x20value=\x22'+_0x3a14e4[0x0][_0x46064d(0x1c5)]+_0x46064d(0x21c)+_0x3a14e4[0x0][_0x46064d(0x1c5)]+'\x20ชิ้น</option>'):_0x3846a2+=_0x46064d(0x1a1)+_0x24f453+_0x46064d(0x201)+_0x24f453+'\x22>'+_0x24f453+_0x46064d(0x262);}}xCalSell+=xResults*_0x5e5f81[_0x46064d(0x20e)]()[_0x46064d(0x1bc)],_0x3846a2+=_0x46064d(0x248),_0x3846a2+=_0x46064d(0x183)+_0x432bd8+_0x46064d(0x1ce)+_0x5e5f81[_0x46064d(0x20e)]()[_0x46064d(0x1bc)]+_0x46064d(0x1f6),_0x3846a2+=_0x46064d(0x187)+_0x432bd8+_0x46064d(0x1ce)+xResults*_0x5e5f81[_0x46064d(0x20e)]()[_0x46064d(0x1bc)]+'\x22\x20readonly></div></div>',_0x3846a2+=_0x46064d(0x269),_0x3846a2+='</tr>',_0x3846a2+=_0x46064d(0x264)+_0x432bd8+_0x46064d(0x1ce)+_0x5e5f81['id']+_0x46064d(0x217),_0x3846a2+=_0x46064d(0x250)+_0x432bd8+_0x46064d(0x1ce)+_0x5e5f81['data']()[_0x46064d(0x1d4)]+_0x46064d(0x217),_0x432bd8++,xMaxGift++;}),_0x3846a2+=_0x56b6ee(0x1bf),_0x3846a2+='<div\x20class=\x22clr\x22></div>',$(_0x56b6ee(0x191))[_0x56b6ee(0x271)](_0x3846a2),CalGift();});}var xTotalPrice=0x0;function CalGift(){var _0x322f2c=_0x13634a,_0x54babe=0x0,_0x2b9a5a='',_0x271472=0x0,_0x4e4c93=parseFloat(document[_0x322f2c(0x1c3)](_0x322f2c(0x1ab))[_0x322f2c(0x1d3)]*document[_0x322f2c(0x1c3)](_0x322f2c(0x1a3))[_0x322f2c(0x1d3)]),_0x5c39c2=parseFloat(document[_0x322f2c(0x1c3)](_0x322f2c(0x17f))[_0x322f2c(0x1d3)]*document[_0x322f2c(0x1c3)]('OrderGiftID1')[_0x322f2c(0x1d3)]),_0x235df2=parseFloat(document['getElementById']('UnitPrice2')[_0x322f2c(0x1d3)]*document[_0x322f2c(0x1c3)](_0x322f2c(0x1d8))['value']),_0x433ef2=parseFloat(document[_0x322f2c(0x1c3)](_0x322f2c(0x1f2))['value']*document[_0x322f2c(0x1c3)]('OrderGiftID3')[_0x322f2c(0x1d3)]),_0x5cbd7f=parseFloat(document[_0x322f2c(0x1c3)](_0x322f2c(0x26c))[_0x322f2c(0x1d3)]*document[_0x322f2c(0x1c3)](_0x322f2c(0x18b))['value']),_0x186b00=parseFloat(document[_0x322f2c(0x1c3)]('UnitPrice5')['value']*document['getElementById'](_0x322f2c(0x18c))[_0x322f2c(0x1d3)]),_0x132272=parseFloat(document[_0x322f2c(0x1c3)](_0x322f2c(0x22f))[_0x322f2c(0x1d3)]*document[_0x322f2c(0x1c3)]('OrderGiftID6')['value']),_0x1a0fef=parseFloat(document[_0x322f2c(0x1c3)](_0x322f2c(0x259))[_0x322f2c(0x1d3)]*document['getElementById'](_0x322f2c(0x1ef))[_0x322f2c(0x1d3)]),_0x4dbf5=parseFloat(document['getElementById'](_0x322f2c(0x20c))[_0x322f2c(0x1d3)]*document[_0x322f2c(0x1c3)](_0x322f2c(0x17d))[_0x322f2c(0x1d3)]),_0x306984=parseFloat(document['getElementById'](_0x322f2c(0x240))['value']*document[_0x322f2c(0x1c3)](_0x322f2c(0x25c))[_0x322f2c(0x1d3)]),_0x30cd51=parseFloat(document[_0x322f2c(0x1c3)](_0x322f2c(0x234))['value']*document['getElementById'](_0x322f2c(0x1c1))[_0x322f2c(0x1d3)]),_0x129d5c=parseFloat(document['getElementById'](_0x322f2c(0x21d))[_0x322f2c(0x1d3)]*document[_0x322f2c(0x1c3)](_0x322f2c(0x203))[_0x322f2c(0x1d3)]),_0x4e78f2=parseFloat(document['getElementById'](_0x322f2c(0x254))[_0x322f2c(0x1d3)]*document[_0x322f2c(0x1c3)](_0x322f2c(0x1be))[_0x322f2c(0x1d3)]),_0x19b58f=parseFloat(document[_0x322f2c(0x1c3)]('UnitPrice13')[_0x322f2c(0x1d3)]*document[_0x322f2c(0x1c3)](_0x322f2c(0x238))['value']),_0x30ea8b=parseFloat(document['getElementById'](_0x322f2c(0x193))[_0x322f2c(0x1d3)]*document[_0x322f2c(0x1c3)](_0x322f2c(0x1f8))[_0x322f2c(0x1d3)]),_0x3654ea=parseFloat(document[_0x322f2c(0x1c3)]('UnitPrice15')[_0x322f2c(0x1d3)]*document['getElementById'](_0x322f2c(0x22b))[_0x322f2c(0x1d3)]),_0x21b793=parseFloat(document[_0x322f2c(0x1c3)](_0x322f2c(0x1db))[_0x322f2c(0x1d3)]*document[_0x322f2c(0x1c3)](_0x322f2c(0x19e))[_0x322f2c(0x1d3)]),_0x33d4a7=parseFloat(document[_0x322f2c(0x1c3)]('UnitPrice17')[_0x322f2c(0x1d3)]*document[_0x322f2c(0x1c3)](_0x322f2c(0x17a))['value']),_0x4645a8=parseFloat(document['getElementById']('OrderGiftID0')[_0x322f2c(0x1d3)])+parseFloat(document['getElementById']('OrderGiftID1')[_0x322f2c(0x1d3)])+parseFloat(document[_0x322f2c(0x1c3)](_0x322f2c(0x1d8))[_0x322f2c(0x1d3)])+parseFloat(document['getElementById'](_0x322f2c(0x25a))[_0x322f2c(0x1d3)])+parseFloat(document[_0x322f2c(0x1c3)]('OrderGiftID4')[_0x322f2c(0x1d3)])+parseFloat(document[_0x322f2c(0x1c3)]('OrderGiftID5')[_0x322f2c(0x1d3)])+parseFloat(document['getElementById'](_0x322f2c(0x197))['value']),_0x2f1f91=parseFloat(document[_0x322f2c(0x1c3)](_0x322f2c(0x1ef))[_0x322f2c(0x1d3)])+parseFloat(document[_0x322f2c(0x1c3)](_0x322f2c(0x17d))['value'])+parseFloat(document['getElementById'](_0x322f2c(0x25c))['value'])+parseFloat(document[_0x322f2c(0x1c3)](_0x322f2c(0x1c1))[_0x322f2c(0x1d3)])+parseFloat(document[_0x322f2c(0x1c3)](_0x322f2c(0x203))[_0x322f2c(0x1d3)])+parseFloat(document[_0x322f2c(0x1c3)](_0x322f2c(0x1be))['value'])+parseFloat(document[_0x322f2c(0x1c3)](_0x322f2c(0x238))[_0x322f2c(0x1d3)]),_0x3df03a=parseFloat(document[_0x322f2c(0x1c3)](_0x322f2c(0x1f8))[_0x322f2c(0x1d3)])+parseFloat(document['getElementById']('OrderGiftID15')[_0x322f2c(0x1d3)])+parseFloat(document[_0x322f2c(0x1c3)]('OrderGiftID16')[_0x322f2c(0x1d3)])+parseFloat(document[_0x322f2c(0x1c3)](_0x322f2c(0x17a))['value']);xTotalUnitPrice=_0x4645a8+_0x2f1f91+_0x3df03a;var _0x14601c=parseFloat(_0x4e4c93)+parseFloat(_0x5c39c2)+parseFloat(_0x235df2)+parseFloat(_0x433ef2)+parseFloat(_0x5cbd7f)+parseFloat(_0x186b00),_0x19fd31=parseFloat(_0x132272)+parseFloat(_0x1a0fef)+parseFloat(_0x4dbf5)+parseFloat(_0x306984)+parseFloat(_0x30cd51)+parseFloat(_0x129d5c),_0x636a9d=parseFloat(_0x4e78f2)+parseFloat(_0x19b58f)+parseFloat(_0x30ea8b)+parseFloat(_0x3654ea)+parseFloat(_0x21b793)+parseFloat(_0x33d4a7);xTotalPrice=_0x14601c+_0x19fd31+_0x636a9d,xBalance=xBMAllocated-xTotalPrice,$(_0x322f2c(0x265))[_0x322f2c(0x271)](numberWithCommas(_0x4e4c93)),$(_0x322f2c(0x1f9))[_0x322f2c(0x271)](numberWithCommas(_0x5c39c2)),$('#SumUnitPrice2')[_0x322f2c(0x271)](numberWithCommas(_0x235df2)),$('#SumUnitPrice3')['html'](numberWithCommas(_0x433ef2)),$(_0x322f2c(0x1d6))['html'](numberWithCommas(_0x5cbd7f)),$(_0x322f2c(0x1e9))['html'](numberWithCommas(_0x186b00)),$(_0x322f2c(0x235))['html'](numberWithCommas(_0x132272)),$('#SumUnitPrice7')[_0x322f2c(0x271)](numberWithCommas(_0x1a0fef)),$('#SumUnitPrice8')['html'](numberWithCommas(_0x4dbf5)),$(_0x322f2c(0x258))[_0x322f2c(0x271)](numberWithCommas(_0x306984)),$(_0x322f2c(0x272))[_0x322f2c(0x271)](numberWithCommas(_0x30cd51)),$(_0x322f2c(0x20a))[_0x322f2c(0x271)](numberWithCommas(_0x129d5c)),$('#SumUnitPrice12')[_0x322f2c(0x271)](numberWithCommas(_0x4e78f2)),$(_0x322f2c(0x199))[_0x322f2c(0x271)](numberWithCommas(_0x19b58f)),$(_0x322f2c(0x1c6))[_0x322f2c(0x271)](numberWithCommas(_0x30ea8b)),$('#SumUnitPrice15')[_0x322f2c(0x271)](numberWithCommas(_0x3654ea)),$(_0x322f2c(0x215))[_0x322f2c(0x271)](numberWithCommas(_0x21b793)),$(_0x322f2c(0x1a5))['html'](numberWithCommas(_0x33d4a7)),_0x2b9a5a+=_0x322f2c(0x1cc),_0x2b9a5a+=_0x322f2c(0x1d2),_0x2b9a5a+=_0x322f2c(0x22e)+numberWithCommas(xBMAllocated)+_0x322f2c(0x1c0),_0x2b9a5a+=_0x322f2c(0x210)+numberWithCommas(xTotalPrice)+_0x322f2c(0x1f3);xBalance>=0x0?_0x2b9a5a+=_0x322f2c(0x260)+numberWithCommas(xBalance)+'\x22\x20style=\x22color:#fff;background:#13c33b;\x22></div></div>':_0x2b9a5a+='<div\x20class=\x22box-price\x22><div\x20style=\x22font-size:12px;font-weight:600;\x22>ยอดงบคงเหลือ</div><input\x20type=\x22text\x22\x20value=\x22'+numberWithCommas(xBalance)+_0x322f2c(0x25f);_0x2b9a5a+=_0x322f2c(0x208),_0x2b9a5a+=_0x322f2c(0x1cc);var _0x29fd2c=xBMAllocated-xTotalPrice;if(xBMAllocated-xTotalPrice>=0x0){_0x2b9a5a+=_0x322f2c(0x1eb);if(xBMStatus==0x0||xBMStatus==0x1)xTotalUnitPrice!=0x0?(_0x2b9a5a+=_0x322f2c(0x1a4),xTotalUnitPrice!=0x0&&(_0x2b9a5a+=_0x322f2c(0x22d)+gID+_0x322f2c(0x1c9)),_0x2b9a5a+=_0x322f2c(0x1da)+gID+_0x322f2c(0x1fa)):(_0x2b9a5a+=_0x322f2c(0x229),_0x2b9a5a+=_0x322f2c(0x1c7));else{if(xBMStatus==0x2)_0x2b9a5a+=_0x322f2c(0x1f4)+gID+_0x322f2c(0x1e2),_0x2b9a5a+=_0x322f2c(0x1c7),_0x2b9a5a+=_0x322f2c(0x1b4);else{if(xBMStatus==0x3)xTotalUnitPrice!=0x0&&(_0x2b9a5a+='<div\x20class=\x22btn-z1\x22\x20onclick=\x22SaveOrder(\x27'+gID+_0x322f2c(0x1fa),_0x2b9a5a+='<div\x20style=\x22font-weight:600;\x20color:#ff0000;line-height:1.2;\x22><font\x20color=\x22#000000\x22>โซนแจ้งทำการทบทวนการสั่งจองใหม่อีกครั้ง</font><br>'+zZoneMemoToBM+_0x322f2c(0x208));else xBMStatus==0x9?(_0x2b9a5a+=_0x322f2c(0x24b)+gID+_0x322f2c(0x19d),_0x2b9a5a+='<div\x20style=\x22font-weight:600;\x20color:#0056ff;\x22>รายการของท่านได้รับการอนุมัติจากโซน\x20เรียบร้อยแล้ว<br></div>'):(_0x2b9a5a+=_0x322f2c(0x1f4)+gID+_0x322f2c(0x1e2),_0x2b9a5a+=_0x322f2c(0x1b0));}}_0x2b9a5a+=_0x322f2c(0x208);}else{var _0x15b595='';_0x15b595+=_0x322f2c(0x206),_0x15b595+='<div>ขณะนี้คุณได้ทำคำสั่งซื้อของขวัญปีใหม่<br><br>จากงบประมาณที่ได้รับ\x20<b>'+numberWithCommas(xBMAllocated)+_0x322f2c(0x194)+numberWithCommas(xTotalPrice)+_0x322f2c(0x233)+numberWithCommas(_0x29fd2c)+_0x322f2c(0x230),_0x15b595+=_0x322f2c(0x1cc),_0x15b595+=_0x322f2c(0x20f),$(_0x322f2c(0x198))[_0x322f2c(0x271)](_0x15b595),document[_0x322f2c(0x1c3)](_0x322f2c(0x17b))[_0x322f2c(0x175)][_0x322f2c(0x218)]=_0x322f2c(0x182),_0x2b9a5a+=_0x322f2c(0x192);}_0x2b9a5a+=_0x322f2c(0x225)+xBMName+_0x322f2c(0x176)+xBranchName+'</b></div>',$(_0x322f2c(0x276))[_0x322f2c(0x271)](_0x2b9a5a);}function DisplayGift(_0x5bbad6){var _0x18c04c=_0x13634a,_0x1fbe44='';dbGiftStock[_0x18c04c(0x1b9)](firebase['firestore']['FieldPath'][_0x18c04c(0x1ad)](),'==',_0x5bbad6)[_0x18c04c(0x170)]()['then'](_0x10bb69=>{var _0x5cc775=_0x18c04c;_0x10bb69[_0x5cc775(0x1ee)](_0x69ff17=>{var _0x45f275=_0x5cc775;_0x1fbe44+=_0x45f275(0x236),_0x1fbe44+=_0x45f275(0x1aa)+_0x69ff17[_0x45f275(0x20e)]()[_0x45f275(0x224)]+_0x45f275(0x189),_0x1fbe44+=_0x45f275(0x1f7)+_0x69ff17[_0x45f275(0x20e)]()[_0x45f275(0x1d4)]+_0x45f275(0x208),_0x1fbe44+=_0x45f275(0x268)+_0x69ff17[_0x45f275(0x20e)]()[_0x45f275(0x247)]+_0x45f275(0x208),_0x1fbe44+=_0x45f275(0x1bb)+_0x69ff17[_0x45f275(0x20e)]()['PointRedeem']+_0x45f275(0x1d5),_0x1fbe44+='',_0x1fbe44+='',_0x1fbe44+=_0x45f275(0x1cc),_0x1fbe44+=_0x45f275(0x19c);}),$('#DisplayGift')[_0x5cc775(0x271)](_0x1fbe44);}),document['getElementById']('id03')[_0x18c04c(0x175)][_0x18c04c(0x218)]='block';}function _0x4232(_0x4218fc,_0x3527bf){var _0x441b2b=_0x441b();return _0x4232=function(_0x423247,_0x13b52d){_0x423247=_0x423247-0x170;var _0x2efcd9=_0x441b2b[_0x423247];return _0x2efcd9;},_0x4232(_0x4218fc,_0x3527bf);}function DeleteAllOrder(_0x2a828a){var _0x5ce5cb=_0x13634a;dbGiftOrder['where']('RefID','==',_0x2a828a)[_0x5ce5cb(0x170)]()[_0x5ce5cb(0x207)](_0x476d8b=>{var _0x596000=_0x5ce5cb;_0x476d8b[_0x596000(0x1ee)](_0x1d63e9=>{var _0x2c1925=_0x596000;dbGiftOrder[_0x2c1925(0x226)]()['delete'](),DeleteRefID(_0x1d63e9['id']);}),console['log'](_0x596000(0x24a)+gID);var _0x16e606=0x3e8;setTimeout(function(){var _0x55e524=_0x596000;dbNewyearData[_0x55e524(0x226)](gID)[_0x55e524(0x202)]({'BMStatus':0x0,'TotalOrders':0x0,'UseBudget':0x0,'BMBalance':0x0});},_0x16e606);var _0x221e8b=0x7d0;setTimeout(function(){var _0x4bf99d=_0x596000,_0x34a544='';_0x34a544+=_0x4bf99d(0x1e4),_0x34a544+=_0x4bf99d(0x1e6),_0x34a544+=_0x4bf99d(0x1cc),_0x34a544+='<div\x20class=\x22btn-t2\x22\x20onclick=\x22GotoMyOrder()\x22\x20style=\x22margin:40px\x20auto\x2025px\x20auto;\x22>ปิดหน้าต่างนี้</div>',$(_0x4bf99d(0x273))['html'](_0x34a544),document[_0x4bf99d(0x1c3)](_0x4bf99d(0x1fe))[_0x4bf99d(0x175)]['display']=_0x4bf99d(0x182);},_0x221e8b);});}function DeleteRefID(_0x296333){var _0xd5d05=_0x13634a;dbGiftOrder[_0xd5d05(0x226)](_0x296333)[_0xd5d05(0x18f)](),console[_0xd5d05(0x1d0)](_0x296333);}function ViewOrder(_0x475673){var _0x284a33=_0x13634a,_0x20e9a1='',_0x5754a9=0x0,_0x2fdc53=0x0;_0x20e9a1+=_0x284a33(0x1b1),_0x20e9a1+=_0x284a33(0x26b)+xBranchName+'<br>BM\x20:\x20'+xBMName+_0x284a33(0x208),_0x20e9a1+='<table\x20class=\x22table\x20table-bordered\x22\x20class=\x22font13\x22\x20style=\x22background-color:\x20#fff;margin-top:10px;\x22>',_0x20e9a1+=_0x284a33(0x24e),_0x20e9a1+=_0x284a33(0x1ba),dbGiftOrder['where'](_0x284a33(0x22c),'==',_0x475673)['orderBy']('StockName','asc')[_0x284a33(0x170)]()[_0x284a33(0x207)](_0x456897=>{var _0x29a775=_0x284a33;_0x456897[_0x29a775(0x1ee)](_0x1c5336=>{var _0x4c66a8=_0x29a775;_0x5754a9=_0x5754a9+_0x1c5336[_0x4c66a8(0x20e)]()[_0x4c66a8(0x1c5)],_0x2fdc53=_0x2fdc53+_0x1c5336[_0x4c66a8(0x20e)]()['OrderGift']*_0x1c5336['data']()['PointRedeem'],_0x20e9a1+=_0x4c66a8(0x26d)+_0x1c5336[_0x4c66a8(0x20e)]()[_0x4c66a8(0x1d4)]+_0x4c66a8(0x188),_0x20e9a1+=_0x4c66a8(0x219)+_0x1c5336[_0x4c66a8(0x20e)]()[_0x4c66a8(0x1c5)]+_0x4c66a8(0x269),_0x20e9a1+=_0x4c66a8(0x219)+numberWithCommas(_0x1c5336[_0x4c66a8(0x20e)]()[_0x4c66a8(0x1c5)]*_0x1c5336['data']()[_0x4c66a8(0x1bc)])+'</td></tr>';}),_0x20e9a1+='<tr><th\x20scope=\x22row\x22\x20style=\x22text-align:\x20left;background:#73a0f4;\x22>สรุปรายการสั่งซื้อ</th>',_0x20e9a1+=_0x29a775(0x237)+addCommas(_0x5754a9)+_0x29a775(0x269),_0x20e9a1+='<td\x20style=\x22text-align:\x20right;\x20font-weight:\x20600;background:#73a0f4;\x22>'+numberWithCommas(_0x2fdc53)+_0x29a775(0x231),_0x20e9a1+=_0x29a775(0x25b)+numberWithCommas(xBMAllocated)+_0x29a775(0x231),_0x20e9a1+=_0x29a775(0x223)+numberWithCommas(_0x2fdc53)+_0x29a775(0x231),_0x20e9a1+=_0x29a775(0x212)+numberWithCommas(xBMAllocated-_0x2fdc53)+_0x29a775(0x231),_0x20e9a1+=_0x29a775(0x1b7),_0x20e9a1+=_0x29a775(0x263),$(_0x29a775(0x18d))[_0x29a775(0x271)](_0x20e9a1);}),document[_0x284a33(0x1c3)](_0x284a33(0x17e))[_0x284a33(0x175)][_0x284a33(0x218)]=_0x284a33(0x182);}function SaveOrder(){var _0x3a3449=_0x13634a;LoadDetail();var _0x1cef64=0x0,_0x5e736a=0x0,_0x59cdca='',_0x2a89ec=0x0,_0x575f88='';console[_0x3a3449(0x1d0)](xMaxGift);for(let _0x51a46a=0x0;_0x51a46a<xMaxGift;_0x51a46a++){var _0x1a1f38=document['getElementById'](_0x3a3449(0x1e7)+_0x51a46a)[_0x3a3449(0x1d3)]*document[_0x3a3449(0x1c3)](_0x3a3449(0x24c)+_0x51a46a)[_0x3a3449(0x1d3)];SaveGift(document[_0x3a3449(0x1c3)]('OrderGiftRefID'+_0x51a46a)[_0x3a3449(0x1d3)],document['getElementById'](_0x3a3449(0x24c)+_0x51a46a)['value'],document['getElementById'](_0x3a3449(0x1e7)+_0x51a46a)[_0x3a3449(0x1d3)],_0x1a1f38,document[_0x3a3449(0x1c3)](_0x3a3449(0x253)+_0x51a46a)[_0x3a3449(0x1d3)]);}}var xSumMoney=0x0;function SaveGift(_0x1bc62e,_0xc3b267,_0x54889a,_0x324f59,_0x1928f8){var _0x18aafa=_0x13634a;document[_0x18aafa(0x1c3)](_0x18aafa(0x1ca))[_0x18aafa(0x175)][_0x18aafa(0x218)]=_0x18aafa(0x1de),LoadDetail(),xSumMoney=0x0;var _0x572bdc='',_0x51c00e='',_0x32ca79=0x0;xSumMoney=xSumMoney+xTotalPrice,dbGiftOrder[_0x18aafa(0x1b9)](_0x18aafa(0x22c),'==',gID)[_0x18aafa(0x1b9)](_0x18aafa(0x1d1),'==',_0x1bc62e)[_0x18aafa(0x170)]()[_0x18aafa(0x207)](_0x2115bd=>{var _0xe4bd09=_0x18aafa;_0x2115bd[_0xe4bd09(0x1ee)](_0x1c5871=>{_0x51c00e=_0x1c5871['id'],_0x32ca79=0x1;});if(_0x54889a==0x0)dbGiftOrder[_0xe4bd09(0x226)](_0x51c00e)['delete']();else{if(_0x32ca79==0x1){var _0x3a6da6=parseFloat(_0x54889a*_0xc3b267);dbGiftOrder[_0xe4bd09(0x226)](_0x51c00e)[_0xe4bd09(0x202)]({'OrderGift':parseFloat(_0x54889a),'OrderPrice':parseFloat(_0x54889a*_0xc3b267),'PointRedeem':parseFloat(_0xc3b267)});}else dbGiftOrder[_0xe4bd09(0x1b3)]({'RefID':gID,'RefGift':_0x1bc62e,'EmpID':xBMEmpID,'EmpName':xBMName,'EmpBR':xBranchName,'EmpZone':xZone,'EmpRH':xRH,'OrderGift':parseFloat(_0x54889a),'OrderPrice':parseFloat(_0x54889a*_0xc3b267),'PointRedeem':parseFloat(_0xc3b267),'StockName':_0x1928f8});}});var _0x199541=0x0,_0x2cab4f=0x0;_0x572bdc+=_0x18aafa(0x216),_0x572bdc+=_0x18aafa(0x277),_0x572bdc+=_0x18aafa(0x24e),_0x572bdc+='<th\x20scope=\x22col\x22>รายการ</th><th\x20scope=\x22col\x22>จำนวน</th><th\x20scope=\x22col\x22>ราคา</th></tr></thead><tbody>';for(let _0x1eb0a3=0x0;_0x1eb0a3<xMaxGift;_0x1eb0a3++){document[_0x18aafa(0x1c3)]('OrderGiftID'+_0x1eb0a3)[_0x18aafa(0x1d3)]!=0x0&&(_0x572bdc+='<tr><th\x20scope=\x22row\x22\x20style=\x22text-align:\x20left;\x22>'+document[_0x18aafa(0x1c3)](_0x18aafa(0x253)+_0x1eb0a3)[_0x18aafa(0x1d3)]+_0x18aafa(0x188),_0x572bdc+=_0x18aafa(0x219)+document[_0x18aafa(0x1c3)](_0x18aafa(0x1e7)+_0x1eb0a3)[_0x18aafa(0x1d3)]+_0x18aafa(0x269),_0x572bdc+=_0x18aafa(0x219)+numberWithCommas(document[_0x18aafa(0x1c3)](_0x18aafa(0x1e7)+_0x1eb0a3)[_0x18aafa(0x1d3)]*document[_0x18aafa(0x1c3)](_0x18aafa(0x24c)+_0x1eb0a3)[_0x18aafa(0x1d3)])+_0x18aafa(0x231),_0x2cab4f++);}_0x572bdc+=_0x18aafa(0x23b)+numberWithCommas(xSumMoney)+_0x18aafa(0x231),_0x572bdc+='<tr><td\x20style=\x22text-align:\x20center;font-weight:\x20600;background:#f1f1f1;\x22>งบประมาณที่ได้รับ</td><td\x20colspan=\x222\x22\x20style=\x22text-align:\x20right;font-weight:\x20600;background:#f68b1f;\x22>'+numberWithCommas(xBMAllocated)+_0x18aafa(0x231),_0x572bdc+=_0x18aafa(0x212)+numberWithCommas(xBMAllocated-xSumMoney)+_0x18aafa(0x1c4),_0x572bdc+=_0x18aafa(0x18a),_0x572bdc+='<div\x20style=\x22text-align:left;\x20margin:20px\x200\x202px\x205px;\x22>ที่ตั้งสาขา-ที่จัดส่งของขวัญ</div><center><textarea\x20id=\x22txtBM_Address\x22\x20name=\x22BM_Address\x22\x20style=\x22width:98%;\x20height:80px;text-align:left;font-weight:600;\x20color:#000;\x22>'+zBM_Address+_0x18aafa(0x1e8),_0x572bdc+='<div\x20style=\x22text-align:left;\x20margin:10px\x200\x202px\x205px;\x22>โทรศัพท์ผู้จัดการสาขา</div><input\x20type=\x22text\x22\x20id=\x22txtBM_Phone\x22\x20value=\x22'+zBM_Phone+_0x18aafa(0x19f),_0x572bdc+=_0x18aafa(0x1b2)+zEmpID_Staff1+'\x22\x20style=\x22text-align:left;\x22></div>',_0x572bdc+=_0x18aafa(0x243)+zEmpName_Staff1+_0x18aafa(0x19f),_0x572bdc+='<div\x20style=\x22text-align:left;\x20margin:10px\x200\x202px\x205px;\x22>ผู้รับสินค้า\x201\x20(กรอกหมายเลขโทรศัพท์)</div><input\x20type=\x22text\x22\x20id=\x22txtPhone_Staff1\x22\x20value=\x22'+zPhone_Staff1+_0x18aafa(0x19f),_0x572bdc+='<div\x20style=\x22text-align:left;\x20margin:10px\x200\x202px\x205px;\x22>ผู้รับสินค้า\x202\x20(กรอกรหัสพนักงาน)</div><input\x20type=\x22text\x22\x20id=\x22txtEmpID_Staff2\x22\x20value=\x22'+zEmpID_Staff2+_0x18aafa(0x19f),_0x572bdc+=_0x18aafa(0x1af)+zEmpName_Staff2+_0x18aafa(0x19f),_0x572bdc+=_0x18aafa(0x221)+zPhone_Staff2+'\x22\x20style=\x22text-align:left;\x22></div>',_0x572bdc+=_0x18aafa(0x252),_0x572bdc+=_0x18aafa(0x228),_0x572bdc+=_0x18aafa(0x19a)+gID+'\x27)\x22\x20style=\x22margin:20px\x2010px\x2020px\x20auto;\x22>บันทึกดร๊าฟ<br>ก่อนส่งโซน</div>',_0x572bdc+=_0x18aafa(0x1cc),_0x572bdc+=_0x18aafa(0x1a7)+gID+_0x18aafa(0x1c2),$(_0x18aafa(0x180))[_0x18aafa(0x271)](_0x572bdc),$('#idSendZoneApprove')[_0x18aafa(0x172)]('disabledbutton');var _0x5c1fbf='บันทึกรายการแก้ไขรายการ\x20'+dateString+'<br>',_0x32fc29=0x3e8;setTimeout(function(){var _0x1331c5=_0x18aafa;dbNewyearData['doc'](gID)[_0x1331c5(0x202)]({'BMStatus':0x1,'BMBalance':parseFloat(xBMAllocated-xSumMoney),'TotalOrders':parseFloat(_0x2cab4f),'TotalOrders':parseFloat(xTotalUnitPrice),'UseBudget':parseFloat(xTotalPrice),'BM_Memo':_0x5c1fbf});},_0x32fc29),document['getElementById'](_0x18aafa(0x21b))[_0x18aafa(0x175)][_0x18aafa(0x218)]=_0x18aafa(0x182);}function SaveToZone(){var _0x2d278a=_0x13634a,_0x3aee18=0x0,_0x21d611=0x0;dbNewyearData[_0x2d278a(0x226)](gID)[_0x2d278a(0x202)]({'BMStatus':0x2}),str+=_0x2d278a(0x171),str+=_0x2d278a(0x277),str+=_0x2d278a(0x24e),str+=_0x2d278a(0x1ba);for(let _0xc1ef82=0x0;_0xc1ef82<xMaxGift;_0xc1ef82++){document[_0x2d278a(0x1c3)](_0x2d278a(0x1e7)+_0xc1ef82)[_0x2d278a(0x1d3)]!=0x0&&(str+=_0x2d278a(0x26d)+document[_0x2d278a(0x1c3)](_0x2d278a(0x253)+_0xc1ef82)[_0x2d278a(0x1d3)]+_0x2d278a(0x188),str+='<td\x20style=\x22text-align:\x20right;\x20font-weight:\x20600;\x22>'+document[_0x2d278a(0x1c3)](_0x2d278a(0x1e7)+_0xc1ef82)[_0x2d278a(0x1d3)]+'</td>',str+=_0x2d278a(0x219)+numberWithCommas(document[_0x2d278a(0x1c3)](_0x2d278a(0x1e7)+_0xc1ef82)[_0x2d278a(0x1d3)]*document['getElementById']('UnitPrice'+_0xc1ef82)[_0x2d278a(0x1d3)])+_0x2d278a(0x231),_0x21d611++);}str+=_0x2d278a(0x242)+numberWithCommas(xSumMoney)+'</td></tr>',str+=_0x2d278a(0x251)+numberWithCommas(xBMAllocated)+_0x2d278a(0x231),str+=_0x2d278a(0x212)+numberWithCommas(xBMAllocated-xSumMoney)+_0x2d278a(0x1c4),str+=_0x2d278a(0x245),str+=_0x2d278a(0x1a6),$('#DisplaySaveToZone')[_0x2d278a(0x271)](str),document[_0x2d278a(0x1c3)](_0x2d278a(0x256))[_0x2d278a(0x175)][_0x2d278a(0x218)]=_0x2d278a(0x182);}function GotoOrder(){var _0x1a16b1=_0x13634a;location[_0x1a16b1(0x1b6)]=_0x1a16b1(0x195);}function GotoMyOrder(){var _0x2932df=_0x13634a;location[_0x2932df(0x1b6)]=_0x2932df(0x227)+gID;}function SaveDetail(){var _0x22cc23=_0x13634a,_0x4c5e0b=document[_0x22cc23(0x1c3)](_0x22cc23(0x22a))['value'],_0x53d78e=document[_0x22cc23(0x1c3)](_0x22cc23(0x21a))['value'],_0x540b85=document[_0x22cc23(0x1c3)](_0x22cc23(0x274))[_0x22cc23(0x1d3)],_0x4ac270=document[_0x22cc23(0x1c3)](_0x22cc23(0x232))[_0x22cc23(0x1d3)],_0x4b9fe6=document[_0x22cc23(0x1c3)]('txtPhone_Staff1')[_0x22cc23(0x1d3)],_0x183557=document['getElementById'](_0x22cc23(0x209))[_0x22cc23(0x1d3)],_0x48d41e=document[_0x22cc23(0x1c3)](_0x22cc23(0x174))[_0x22cc23(0x1d3)],_0x2087e1=document[_0x22cc23(0x1c3)](_0x22cc23(0x21f))[_0x22cc23(0x1d3)];if(_0x4c5e0b==''||_0x53d78e==''||_0x540b85==''||_0x4ac270==''||_0x4b9fe6==''||_0x183557==''||_0x48d41e==''||_0x2087e1=='')alert('คุณยังกรอกข้อมูลไม่ครบถ้วน');else{dbNewyearData['doc'](gID)[_0x22cc23(0x202)]({'BM_Address':document[_0x22cc23(0x1c3)](_0x22cc23(0x22a))['value'],'BM_Phone':document[_0x22cc23(0x1c3)]('txtBM_Phone')[_0x22cc23(0x1d3)],'EmpID_Staff1':document[_0x22cc23(0x1c3)](_0x22cc23(0x274))['value'],'EmpName_Staff1':document[_0x22cc23(0x1c3)]('txtEmpName_Staff1')[_0x22cc23(0x1d3)],'Phone_Staff1':document['getElementById']('txtPhone_Staff1')['value'],'EmpID_Staff2':document['getElementById'](_0x22cc23(0x209))['value'],'EmpName_Staff2':document[_0x22cc23(0x1c3)](_0x22cc23(0x174))[_0x22cc23(0x1d3)],'Phone_Staff2':document[_0x22cc23(0x1c3)](_0x22cc23(0x21f))['value']});var _0x4bfe01='';_0x4bfe01+='<div\x20class=\x22btn-t22a\x22\x20style=\x22margin:30px\x20auto;\x20background:#28a745\x20!important;\x20border:2px\x20solid\x20#52c76c\x20!important;\x22>ยืนยันการบันทึกรายการของคุณ</div>',_0x4bfe01+=_0x22cc23(0x222),_0x4bfe01+=_0x22cc23(0x1cc),_0x4bfe01+=_0x22cc23(0x173),$('#WarningText')[_0x22cc23(0x271)](_0x4bfe01),document['getElementById'](_0x22cc23(0x17b))[_0x22cc23(0x175)]['display']=_0x22cc23(0x182),document['getElementById'](_0x22cc23(0x1dd))['style'][_0x22cc23(0x218)]=_0x22cc23(0x182);}}function XLoadDetail(){var _0x152e85=_0x13634a;document[_0x152e85(0x1c3)](_0x152e85(0x17b))['style']['display']='none',LoadDetail();}function addCommas(_0x25114a){var _0xf7645f=_0x13634a;_0x25114a+='',x=_0x25114a[_0xf7645f(0x1a8)]('.'),x1=x[0x0],x2=x[_0xf7645f(0x23d)]>0x1?'.'+x[0x1]:'';var _0x6365fd=/(\d+)(\d{3})/;while(_0x6365fd['test'](x1)){x1=x1[_0xf7645f(0x24d)](_0x6365fd,'$1'+','+'$2');}return x1+x2;}function numberWithCommas(_0x3aba9e){var _0x460fee=_0x13634a,_0x23a7b6=_0x3aba9e,_0x5277af=parseFloat(_0x23a7b6)['toFixed'](0x2);return formattedString=_0x5277af[_0x460fee(0x24f)]()[_0x460fee(0x24d)](/\B(?=(\d{3})+(?!\d))/g,',');}function CloseAll(){var _0xb60739=_0x13634a;document[_0xb60739(0x1c3)]('ShowNav')['style']['display']='block',document['getElementById'](_0xb60739(0x21b))['style'][_0xb60739(0x218)]=_0xb60739(0x1de),document[_0xb60739(0x1c3)](_0xb60739(0x256))['style'][_0xb60739(0x218)]=_0xb60739(0x1de),document[_0xb60739(0x1c3)]('id03')[_0xb60739(0x175)][_0xb60739(0x218)]=_0xb60739(0x1de),document[_0xb60739(0x1c3)]('id04')[_0xb60739(0x175)][_0xb60739(0x218)]=_0xb60739(0x1de);}
+var dateString = new Date().toLocaleString('en-US', { timeZone: 'Asia/Jakarta' });
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear()+543;
+var gID, gStatus;
+var xMaxGift = 0;
+var xNewyearLimit = 22;
+var xOrderLimit = 250;
+var xBMStatus = 0;
+var xSendZoneApprove = 0;
+ 
+var zBM_Address = "";
+var zBM_Phone = "";
+var zEmpID_Staff1 = "";
+var zEmpName_Staff1 = "";
+var zPhone_Staff1 = "";
+var zEmpID_Staff2 = "";
+var zEmpName_Staff2 = "";
+var zPhone_Staff2 = "";
+var zZoneMemoToBM = "";
+ 
+ 
+$(document).ready(function () {
+  if(sessionStorage.getItem("EmpID_Newyear")==null) { location.href = "index.html"; }
+  gID = getParameterByName('gid');
+  gStatus = getParameterByName('gStatus');
+  Connect_DB();
+  CheckBudget();
+  GetUserOrder(gID);
+  LoadGiftStock();
+});
+ 
+ 
+function getParameterByName(name, url) {
+  str = '';
+  if (!url) url = window.location.href;
+  name = name.replace(/[\[\]]/g, '\\$&');
+  var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+      results = regex.exec(url);
+  if (!results) return null;
+  if (!results[2]) return '';
+  return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+ 
+ 
+ 
+function LoadDetail() {
+  dbNewyearData.where(firebase.firestore.FieldPath.documentId(), "==", gID)
+  .get().then((snapshot)=> {
+  snapshot.forEach(doc=> {
+      xBMStatus = doc.data().BMStatus;
+      zBM_Address = doc.data().BM_Address;
+      zBM_Phone = doc.data().BM_Phone;
+      zEmpID_Staff1 = doc.data().EmpID_Staff1;
+      zEmpName_Staff1 = doc.data().EmpName_Staff1;
+      zPhone_Staff1 = doc.data().Phone_Staff1;
+      zEmpID_Staff2 = doc.data().EmpID_Staff2;
+      zEmpName_Staff2 = doc.data().EmpName_Staff2;
+      zPhone_Staff2 = doc.data().Phone_Staff2;
+      zZoneMemoToBM = doc.data().ZoneMemoToBM;
+    });
+  });
+}
+ 
+ 
+var xBMAllocated = 0;
+var xBMEmpID = "";
+var xBMName = "";
+var xBranchName = "";
+var xZone = "";
+var xRH = "";
+function CheckBudget() {
+  var str = "";
+  var xStatus = "";
+  str += '<table class="table table-bordered" class="font13" style="margin-top:20px; background-color: #fff;">';
+  str += '<thead><tr style="text-align: center;background-color: #93a3c1;">';
+  str += '<th scope="col">รายการ</th><th scope="col">รายละเอียด</th></tr></thead><tbody>';
+  dbNewyearData.where(firebase.firestore.FieldPath.documentId(), "==", gID)
+  .get().then((snapshot)=> {
+  snapshot.forEach(doc=> {
+      xBMStatus = doc.data().BMStatus;
+      if(doc.data().BMStatus==0) {
+        xMsg = "คลิก<br>สั่งจอง";
+        xStatus = "<font color='#555555'><b>ยังไม่ได้สั่งจอง</b></font>";
+      } else if(doc.data().BMStatus==1) {
+        xMsg = "กำลัง<br>สั่งจอง";
+        xStatus = "<font color='#f68b1f'><b>อยู่ระหว่างการสั่งจอง</b></font>";
+      } else if(doc.data().BMStatus==2) {
+        xMsg = "ส่งโซน<br>ขออนุมัติ";
+        xStatus = "<font color='#0056ff'><b>ส่งโซนอนุมัติ</b></font>";
+      } else if(doc.data().BMStatus==3) {
+        xMsg = "โซนแจ้ง<br>ทบทวน";
+        xStatus = "<font color='#ff0000'><b>โซนแจ้งทบทวนใหม่</b></font>";
+      } else if(doc.data().BMStatus==8) {
+        xMsg = "โซนแจ้ง<br>ยกเลิก";
+        xStatus = "<font color='#ff0000'><b>โซนแจ้งขอยกเลิกการจอง</b></font>";
+      } else if(doc.data().BMStatus==9) {
+        xMsg = "โซนแจ้ง<br>อนุมัติ";
+        xStatus = "<font color='#28c92a'><b>โซนอนุมัติเรียบร้อยแล้ว</b></font>";
+      }
+      xBMEmpID = doc.data().BMEmpID;
+      xBMName = doc.data().BMName;
+      xBranchName = doc.data().BranchName +" ("+ doc.data().BranchID +")";
+      xZone = doc.data().EmpZone;
+      xRH = doc.data().EmpRH;
+      str += '<tr>';
+      str += '<td style="text-align: left; line-height: 1.2;background-color:#d5dae2">สาขา</td>';
+      str += '<td style="text-align: center;background:#c4d0e2;"><b>'+ doc.data().BranchName +' ('+ doc.data().BranchID +')</b></td></tr>';
+      str += '<td style="text-align: left; line-height: 1.2;background-color:#d5dae2">BM</td>';
+      str += '<td style="text-align: center;background:#c4d0e2;"><b>'+ doc.data().BMName +'</b></td></tr>';
+      str += '<td style="text-align: left; line-height: 1.2;background-color:#d5dae2">สถานะ</td>';
+      str += '<td style="text-align: center;background:#c4d0e2;"><b>'+ xStatus +'</b></td></tr>';
+      str += '<td style="text-align: left; line-height: 1.2;background-color:#d5dae2">งบสั่งจอง</td>';
+      str += '<td style="text-align: center;background:#c4d0e2;"><b>'+ numberWithCommas(doc.data().BMAllocated) +' บาท</b></td></tr>';
+      str += '<td style="text-align: left; line-height: 1.2;background-color:#d5dae2">สั่งไปแล้ว</td>';
+      str += '<td style="text-align: center;background:#c4d0e2;"><b>'+ numberWithCommas(doc.data().UseBudget) +' บาท</b></td></tr>';
+      xBMAllocated = doc.data().BMAllocated;
+    });
+    str += '</tbody></table></div>';
+    str += '<div class="clr"></div>';
+    $("#DisplayBudget").html(str);
+  });
+}
+ 
+ 
+ 
+var GetOrderArr = [];
+function GetUserOrder(gID) {
+  var i = 0;
+  dbGiftOrder.where('RefID','==',gID)
+  .get().then((snapshot)=> {
+    snapshot.forEach(doc=> {
+      GetOrderArr.push({ RefGift: doc.data().RefGift, StockName: doc.data().StockName, OrderGift: doc.data().OrderGift, ID: doc.id });
+    });   
+  });
+}
+ 
+ 
+var xCheckOrder = 0;
+var xCountRec = 0;
+var xSumAllPrice = 0;
+var xSumUnitPrice = 0;
+var xTotalUnitPrice = 0;
+var xBalance = 0;
+function LoadGiftStock() {
+  LoadDetail();
+  var str = "";
+  var i = 0;
+  var xOrder = 0;
+  xSumAllPrice = 0;
+  xSumUnitPrice = 0;
+  xMaxGift = 0;
+  xCalSell = 0;
+ 
+  str += '<table class="table table-bordered" class="font13" style="background-color: #fff;">';
+  str += '<thead><tr style="text-align: center;background-color: #93a3c1;">';
+  str += '<th scope="col">No.</th><th scope="col">รายการของขวัญ</th></tr></thead><tbody>';
+  dbGiftStock.where('StockStatus','==',1)
+  .orderBy('StockGroup','asc')
+  .orderBy('StockOrder','asc')
+  .get().then((snapshot)=> {
+    snapshot.forEach(doc=> {
+      //console.log(doc.id+"--- id"+i);
+      const results = GetOrderArr.filter(obj => {return obj.RefGift === doc.id;});
+      xResults = 0;
+      xCheckLine = 0;
+      if(results[0]!=undefined) {
+        xResults = results[0].OrderGift;
+        xCheckOrder = parseFloat(xCheckOrder) + parseFloat(results[0].OrderGift);
+      }
+      str += '<tr><th scope="row" style="text-align: center;">'+ (i+1) +'<div onclick="DisplayGift(\''+ doc.id +'\')"><img src="./img/icon-02.png" style="width:20px;"></div></th>';
+      str += '<td style="text-align: left; line-height: 1.2;"><div onclick="DisplayGift(\''+ doc.id +'\')"><font color="#0056ff"><b>'+ doc.data().StockName +'</b></font></div>';
+ 
+      str += '<div style="margin-top:4px;">';
+      str += '<div class="box-price"><div style="font-size:12px;">เลือกจำนวนชิ้น</div>';
+      str += '<select name="OrderGiftID" onchange="CalGift()" id="OrderGiftID'+ i +'" value="'+ xResults +'" class="form-control">';
+      if(doc.data().StockView==1) {
+        for (let k = 0; k < xNewyearLimit; k++) {
+          if(k==0) {
+            str += '<option onchange="CalGift(0)" value="0">รอการสั่ง</option>';
+          } else {
+            if( xResults==(k*50) ) {
+              xCheckLine = 1;
+              str += '<option onchange="CalGift('+ k +')" value="'+ results[0].OrderGift +'" selected>'+ results[0].OrderGift +' ชิ้น</option>';
+            } else {
+              str += '<option onchange="CalGift('+ k +')" value="'+ (k*50) +'">'+ (k*50) +' ชิ้น</option>';
+            }
+          }
+        }
+      } else if(doc.data().StockView==2) {
+        for (let j = 0; j < (xOrderLimit+1); j++) {
+          if(j==0) {
+            str += '<option onchange="CalGift(0)" value="0">รอการสั่ง</option>';
+          } else {
+            if( xResults==j ) {
+              xCheckLine = 1;
+              str += '<option onchange="CalGift('+ j +')" value="'+ results[0].OrderGift +'" selected>'+ results[0].OrderGift +' ชิ้น</option>';
+            } else {
+              str += '<option onchange="CalGift('+ j +')" value="'+ j +'">'+ j +' ชิ้น</option>';
+            }
+          }
+        }
+      }
+      xCalSell += xResults * doc.data().PointRedeem;
+      str += '</select></div>';
+      str += '<div class="box-price"><div style="font-size:12px;">ราคาต่อชิ้น</div><input type="text" id="UnitPrice'+ i +'" value="'+ doc.data().PointRedeem +'" readonly></div>';
+      str += '<div class="box-price"><div style="font-size:12px;">จำนวนเงินที่ใช้</div><div class="box-order" id="SumUnitPrice'+ i +'" value="'+ (xResults * doc.data().PointRedeem) +'" readonly></div></div>';
+      str += '</td>';
+      str += '</tr>';
+      str += '<input type="text" id="OrderGiftRefID'+ i +'" value="'+ doc.id +'" hidden>';
+      str += '<input type="text" id="NameGift'+ i +'" value="'+ doc.data().StockName +'" hidden>';
+ 
+      i++;
+      xMaxGift++;
+    });
+    str += '</tbody></table></div>';
+    str += '<div class="clr"></div>';
+    $("#DisplayGroup2").html(str);
+    CalGift();
+  });
+}
+ 
+ 
+ 
+var xTotalPrice = 0;
+function CalGift() {
+  var i = 0;
+  var str = "";
+  var SumItem = 0;
+  var xSumUnitPrice0 = parseFloat(document.getElementById("UnitPrice0").value * document.getElementById("OrderGiftID0").value);
+  var xSumUnitPrice1 = parseFloat(document.getElementById("UnitPrice1").value * document.getElementById("OrderGiftID1").value);
+  var xSumUnitPrice2 = parseFloat(document.getElementById("UnitPrice2").value * document.getElementById("OrderGiftID2").value);
+  var xSumUnitPrice3 = parseFloat(document.getElementById("UnitPrice3").value * document.getElementById("OrderGiftID3").value);
+  var xSumUnitPrice4 = parseFloat(document.getElementById("UnitPrice4").value * document.getElementById("OrderGiftID4").value);
+  var xSumUnitPrice5 = parseFloat(document.getElementById("UnitPrice5").value * document.getElementById("OrderGiftID5").value);
+  var xSumUnitPrice6 = parseFloat(document.getElementById("UnitPrice6").value * document.getElementById("OrderGiftID6").value);
+  var xSumUnitPrice7 = parseFloat(document.getElementById("UnitPrice7").value * document.getElementById("OrderGiftID7").value);
+  var xSumUnitPrice8 = parseFloat(document.getElementById("UnitPrice8").value * document.getElementById("OrderGiftID8").value);
+  var xSumUnitPrice9 = parseFloat(document.getElementById("UnitPrice9").value * document.getElementById("OrderGiftID9").value);
+  var xSumUnitPrice10 = parseFloat(document.getElementById("UnitPrice10").value * document.getElementById("OrderGiftID10").value);
+  var xSumUnitPrice11 = parseFloat(document.getElementById("UnitPrice11").value * document.getElementById("OrderGiftID11").value);
+  var xSumUnitPrice12 = parseFloat(document.getElementById("UnitPrice12").value * document.getElementById("OrderGiftID12").value);
+  var xSumUnitPrice13 = parseFloat(document.getElementById("UnitPrice13").value * document.getElementById("OrderGiftID13").value);
+  var xSumUnitPrice14 = parseFloat(document.getElementById("UnitPrice14").value * document.getElementById("OrderGiftID14").value);
+  var xSumUnitPrice15 = parseFloat(document.getElementById("UnitPrice15").value * document.getElementById("OrderGiftID15").value);
+  var xSumUnitPrice16 = parseFloat(document.getElementById("UnitPrice16").value * document.getElementById("OrderGiftID16").value);
+ 
+  var AA = parseFloat(document.getElementById("OrderGiftID0").value) + parseFloat(document.getElementById("OrderGiftID1").value) + parseFloat(document.getElementById("OrderGiftID2").value) + parseFloat(document.getElementById("OrderGiftID3").value)+ parseFloat(document.getElementById("OrderGiftID4").value)+ parseFloat(document.getElementById("OrderGiftID5").value)+ parseFloat(document.getElementById("OrderGiftID6").value);
+  var BB = parseFloat(document.getElementById("OrderGiftID7").value) + parseFloat(document.getElementById("OrderGiftID8").value) + parseFloat(document.getElementById("OrderGiftID9").value) + parseFloat(document.getElementById("OrderGiftID10").value)+ parseFloat(document.getElementById("OrderGiftID11").value)+ parseFloat(document.getElementById("OrderGiftID12").value)+ parseFloat(document.getElementById("OrderGiftID13").value);
+  var CC = parseFloat(document.getElementById("OrderGiftID14").value)+ parseFloat(document.getElementById("OrderGiftID15").value) + parseFloat(document.getElementById("OrderGiftID16").value);
+  xTotalUnitPrice = AA + BB + CC;
+  var XX = parseFloat(xSumUnitPrice0) + parseFloat(xSumUnitPrice1) + parseFloat(xSumUnitPrice2) + parseFloat(xSumUnitPrice3) + parseFloat(xSumUnitPrice4) + parseFloat(xSumUnitPrice5) ;
+  var YY = parseFloat(xSumUnitPrice6) + parseFloat(xSumUnitPrice7) + parseFloat(xSumUnitPrice8) + parseFloat(xSumUnitPrice9) + parseFloat(xSumUnitPrice10) + parseFloat(xSumUnitPrice11) ;
+  var ZZ = parseFloat(xSumUnitPrice12) + parseFloat(xSumUnitPrice13) + parseFloat(xSumUnitPrice14) + parseFloat(xSumUnitPrice15) + parseFloat(xSumUnitPrice16);
+  xTotalPrice = XX + YY + ZZ;
+  xBalance = xBMAllocated - xTotalPrice;
+  $("#SumUnitPrice0").html(numberWithCommas(xSumUnitPrice0));
+  $("#SumUnitPrice1").html(numberWithCommas(xSumUnitPrice1));
+  $("#SumUnitPrice2").html(numberWithCommas(xSumUnitPrice2));
+  $("#SumUnitPrice3").html(numberWithCommas(xSumUnitPrice3));
+  $("#SumUnitPrice4").html(numberWithCommas(xSumUnitPrice4));
+  $("#SumUnitPrice5").html(numberWithCommas(xSumUnitPrice5));
+  $("#SumUnitPrice6").html(numberWithCommas(xSumUnitPrice6));
+  $("#SumUnitPrice7").html(numberWithCommas(xSumUnitPrice7));
+  $("#SumUnitPrice8").html(numberWithCommas(xSumUnitPrice8));
+  $("#SumUnitPrice9").html(numberWithCommas(xSumUnitPrice9));
+  $("#SumUnitPrice10").html(numberWithCommas(xSumUnitPrice10));
+  $("#SumUnitPrice11").html(numberWithCommas(xSumUnitPrice11));
+  $("#SumUnitPrice12").html(numberWithCommas(xSumUnitPrice12));
+  $("#SumUnitPrice13").html(numberWithCommas(xSumUnitPrice13));
+  $("#SumUnitPrice14").html(numberWithCommas(xSumUnitPrice14));
+  $("#SumUnitPrice15").html(numberWithCommas(xSumUnitPrice15));
+  $("#SumUnitPrice16").html(numberWithCommas(xSumUnitPrice16));
+ 
+  str += '<div class="clr"></div>';
+  str += '</div><div style="margin-top:30px;padding-top:20px;margin-left:3px;">';
+  str += '<div class="box-price"><div style="font-size:12px;font-weight:600;">งบประมาณที่ได้รับ</div><input type="text" value="'+ numberWithCommas(xBMAllocated) +'" style="color:#fff;background:#002d63;"></div></div>';
+  str += '<div class="box-price"><div style="font-size:12px;font-weight:600;">จำนวนเงินที่สั่ง</div><input type="text" value="'+ numberWithCommas(xTotalPrice) +'" style="color:#fff;background:#0056ff;"></div></div>'; 
+  if(xBalance>=0) {
+    str += '<div class="box-price"><div style="font-size:12px;font-weight:600;">ยอดงบคงเหลือ</div><input type="text" value="'+ numberWithCommas(xBalance) +'" style="color:#fff;background:#13c33b;"></div></div>';
+  } else {
+    str += '<div class="box-price"><div style="font-size:12px;font-weight:600;">ยอดงบคงเหลือ</div><input type="text" value="'+ numberWithCommas(xBalance) +'" style="color:#fff;background:#ff0000;"></div></div>';
+  }
+  str += '</div>';
+  str += '<div class="clr"></div>';
+  var xCalAll = xBMAllocated-xTotalPrice;
+  if(xBMAllocated-xTotalPrice>=0) {
+    str += '<div id="ShowSaveData" style="display:block;margin-bottom: 20px;">';
+    if(xBMStatus==0 || xBMStatus==1) {
+      if(xTotalUnitPrice!=0) {
+        str += '<div class="btn-z0" onclick="GotoOrder()" style="margin:10px 10px 10px auto;min-width:50px;">กลับ<br>หน้าแรก</div>';
+        if(xTotalUnitPrice!=0) {
+          str += '<div class="btn-z3" onclick="DeleteAllOrder(\''+ gID +'\')" style="margin:10px 10px 10px auto;min-width:100px;">ยกเลิก<br>รายการสั่งซื้อ</div>';
+        }
+        str += '<div class="btn-z1" onclick="SaveOrder(\''+ gID +'\')" style="margin:10px 10px 10px auto;min-width:100px;">บันทึกดร๊าฟ<br>รายการสั่งซื้อ</div>';
+      } else {
+        str += '<div class="btn-z0" style="margin:10px 10px 20px auto;min-width:100px;">กรุณาสั่ง<br>ของขวัญปีใหม่</div>';
+        str += '<div class="btn-z1" onclick="GotoOrder()" style="margin:10px 10px 20px auto;min-width:100px;">กลับไป<br>หน้าแรก</div>';
+      }
+    } else if(xBMStatus==2) {
+      str += '<div class="btn-z0" onclick="ViewOrder(\''+ gID +'\')" style="margin:10px 10px 10px auto;min-width:100px;">ดูรายละเอียด<br>รายการสั่งซื้อ</div>';
+      str += '<div class="btn-z1" onclick="GotoOrder()" style="margin:10px 10px 20px auto;min-width:100px;">กลับไป<br>หน้าแรก</div>';
+ 
+      str += '<div style="font-weight:600;">รายการอยู่ระหว่างการขออนุมัติจากโซน<br></div>'
+    } else if(xBMStatus==3) {
+      if(xTotalUnitPrice!=0) {
+        str += '<div class="btn-z1" onclick="SaveOrder(\''+ gID +'\')" style="margin:10px 10px 10px auto;min-width:100px;">บันทึกดร๊าฟ<br>รายการสั่งซื้อ</div>';
+        str += '<div style="font-weight:600; color:#ff0000;line-height:1.2;"><font color="#000000">โซนแจ้งทำการทบทวนการสั่งจองใหม่อีกครั้ง</font><br>'+zZoneMemoToBM+'</div>'
+      }
+    } else if(xBMStatus==9) {
+      str += '<div class="btn-z9" onclick="ViewOrder(\''+ gID +'\')" style="margin:10px 10px 10px auto;min-width:100px;">ดูรายการสั่งซื้อ<br>ของขวัญปีใหม่</div>';
+      str += '<div style="font-weight:600; color:#0056ff;">รายการของท่านได้รับการอนุมัติจากโซน เรียบร้อยแล้ว<br></div>'
+    } else {
+      str += '<div class="btn-z0" onclick="ViewOrder(\''+ gID +'\')" style="margin:10px 10px 10px auto;min-width:100px;">ดูรายละเอียด<br>รายการสั่งซื้อ</div>';
+      str += '<div style="font-weight:600;">รายการอยู่ระหว่างการขออนุมัติการสั่งจองของขวัญปีใหม่<br></div>'
+    }
+    str += '</div>';
+  } else {
+    var xText = "";
+    xText += '<div class="btn-t22a" style="margin:30px auto; background:#ff0000 !important; border:2px solid #cc3c3c !important;">ข้อความแจ้งเตือน</div>';
+    xText += '<div>ขณะนี้คุณได้ทำคำสั่งซื้อของขวัญปีใหม่<br><br>จากงบประมาณที่ได้รับ <b>'+ numberWithCommas(xBMAllocated) +' บาท</b><br>ยอดสั่งของขวัญของคุณ <b>'+ numberWithCommas(xTotalPrice) +' บาท</b><br>คุณสั่งเกินไปแล้ว <b><font color="#ff0000">'+ numberWithCommas(xCalAll) +' บาท</font></b><br><br><font color="#ff0000"><b>ระบบจะไม่อนุญาตให้บันทึกรายการสั่งจอง</b></font></div>';
+    xText += '<div class="clr"></div>';
+    xText += '<div class="btn-t2" onclick="CloseAll()" style="margin:25px auto;">ปิดหน้าต่างนี้</div>';
+    $("#WarningText").html(xText);
+    document.getElementById('id04').style.display='block';
+    str += '<div class="btn-t2" onclick=location.href="home.html" type="submit" style="margin-top:20px;">ไม่บันทึกรายการ</div>';
+  }
+  str += '<hr><div style="margin-top:-10px;text-align:left;padding-bottom: 10px;line-height:1.3; padding-left:10px;">BM : <b>'+ xBMName +'</b><br>Branch : <b>'+ xBranchName +'</b></div>';
+  $("#TotalGift").html(str);
+}
+ 
+ 
+function DisplayGift(xID) {
+  var str = "";
+  dbGiftStock.where(firebase.firestore.FieldPath.documentId(), "==", xID)
+  .get().then((snapshot)=> {
+    snapshot.forEach(doc=> {
+      str += '<center><div class="btn-t3" style="margin-top:25px;"><b>รายละเอียดของขวัญปีใหม่</b></div>';
+      str += '<div><img src="'+ doc.data().StockImg +'" style="width:100%;margin-top:18px;margin-bottom: 10px;"></div></center>';
+      str += '<div style="font-weight:600;">'+ doc.data().StockName +'</div>';
+      str += '<div style="font-weight:400; text-align:left; padding-top:10px;">'+ doc.data().StockDetail +'</div>';
+      str += '<div style="font-weight:400;padding-top:10px;">ราคาขายต่อชิ้น <b>'+ doc.data().PointRedeem +' บาท</b></div>';
+      str += '';
+      str += '';
+      str += '<div class="clr"></div>';
+      str += '<div class="btn-t2" onclick="CloseAll()" style="margin:15px auto 25px auto;">ปิดหน้าต่างนี้</div>';
+    });   
+    $("#DisplayGift").html(str);
+  });
+  document.getElementById('id03').style.display='block';
+}
+ 
+ 
+function DeleteAllOrder(gid) {
+  dbGiftOrder.where('RefID','==',gid)
+  .get().then((snapshot)=> {
+  snapshot.forEach(doc=> {
+      dbGiftOrder.doc().delete();
+      DeleteRefID(doc.id);
+    });
+    //console.log("gID="+gID);
+    var Timedelay = 1000; //1 second
+    setTimeout(function() {   
+      dbNewyearData.doc(gID).update({
+        BMStatus : 0,
+        TotalOrders : 0,
+        UseBudget : 0,
+        BMBalance : 0
+      });
+    }, Timedelay);
+ 
+    var delayInMilliseconds = 2000; //1 second
+    setTimeout(function() {   
+      var xText = "";
+      xText += '<div class="btn-t22a" style="margin:30px auto; background:#ff0000 !important; border:2px solid #cc3c3c !important;">ยืนยันการลบรายการของคุณ</div>';
+      xText += '<div><br><br><font color="#ff0000"><b>ระบบได้ทำการลบรายการสั่งจองของขวัญ<br>ของคุณเรียบร้อยแล้ว</b></font><br><br></div>';
+      xText += '<div class="clr"></div>';
+      xText += '<div class="btn-t2" onclick="GotoMyOrder()" style="margin:40px auto 25px auto;">ปิดหน้าต่างนี้</div>';
+      $("#DeleteingText").html(xText);
+      document.getElementById('id05').style.display='block';
+    }, delayInMilliseconds);
+  });
+}
+ 
+ 
+function DeleteRefID(gid) {
+  dbGiftOrder.doc(gid).delete();
+  console.log(gid);
+}
+ 
+ 
+function ViewOrder(gid) {
+  var str = "";
+  var xSumItem = 0;
+  var xSumMoney = 0;
+  str += '<center><div class="btn-t22a" style="margin:30px auto 20px auto;"><b>รายการสั่งซื้อของขวัญปีใหม่ของสาขา</b></div></center>';
+  str += '<div style="line-height:1.3; text-align:left; font-weight:600;">สาขา : '+ xBranchName +'<br>BM : '+ xBMName +'</div>';
+  str += '<table class="table table-bordered" class="font13" style="background-color: #fff;margin-top:10px;">';
+  str += '<thead><tr style="text-align: center;background-color: #93a3c1;">';
+  str += '<th scope="col">รายการ</th><th scope="col">จำนวน</th><th scope="col">ราคา</th></tr></thead><tbody>';
+  dbGiftOrder.where('RefID','==',gid)
+  .orderBy('StockName','asc')
+  .get().then((snapshot)=> {
+  snapshot.forEach(doc=> {
+      xSumItem = xSumItem + doc.data().OrderGift;
+      xSumMoney = xSumMoney + (doc.data().OrderGift * doc.data().PointRedeem);
+      str += '<tr><th scope="row" style="text-align: left;">'+ doc.data().StockName +'</th>';
+      str += '<td style="text-align: right; font-weight: 600;">'+ doc.data().OrderGift +'</td>';
+      str += '<td style="text-align: right; font-weight: 600;">'+ numberWithCommas(doc.data().OrderGift * doc.data().PointRedeem) +'</td></tr>';
+    });
+    str += '<tr><th scope="row" style="text-align: left;background:#73a0f4;">สรุปรายการสั่งซื้อ</th>';
+    str += '<td style="text-align: right; font-weight: 600;background:#73a0f4;">'+ addCommas(xSumItem) +'</td>';
+    str += '<td style="text-align: right; font-weight: 600;background:#73a0f4;">'+ numberWithCommas(xSumMoney) +'</td></tr>';
+    str += '<tr><td style="text-align: center;font-weight: 600;background:#f1f1f1;">งบประมาณที่ได้รับ</td><td colspan="2" style="text-align: right;font-weight: 600;background:#e831e8;">'+ numberWithCommas(xBMAllocated) +'</td></tr>';
+    str += '<tr><td style="text-align: center;font-weight: 600;background:#f1f1f1;">ยอดรวมการสั่งซื้อ</td><td colspan="2" style="text-align: right;font-weight: 600;background:#f68b1f;">'+ numberWithCommas(xSumMoney) +'</td></tr>';
+    str += '<tr><td style="text-align: center;font-weight: 600;background:#f1f1f1;">งบประมาณคงเหลือ</td><td colspan="2" style="text-align: right;font-weight: 600;background:#0056ff;">'+ numberWithCommas(xBMAllocated-xSumMoney) +'</td></tr>';
+    str += '</tbody></table>';
+    str += '<div class="btn-z0" onclick="CloseAll()" style="margin:20px 10px 20px auto;">ปิดหน้าต่าง<br>รายการนี้</div>';
+    $("#DisplayGift").html(str);
+  });
+  document.getElementById('id03').style.display='block';
+}
+ 
+ 
+function SaveOrder() {
+  LoadDetail();
+  var h = 0;
+  var j = 0;
+  var yRefGiftID = "";
+  var yCheckFound = 0;
+  var EidOrder = "";
+  //console.log(xMaxGift);
+  for (let h = 0; h < (xMaxGift); h++) {
+    var CalTotalGift = document.getElementById("OrderGiftID"+h).value*document.getElementById("UnitPrice"+h).value;
+    SaveGift(document.getElementById("OrderGiftRefID"+h).value, document.getElementById("UnitPrice"+h).value, document.getElementById("OrderGiftID"+h).value, CalTotalGift, document.getElementById("NameGift"+h).value);
+  }
+}
+ 
+ 
+var xSumMoney = 0;
+function SaveGift(GiftID,GiftPrice,GiftOrder,GiftTotal,NameGift) {
+  document.getElementById('ShowNav').style.display='none';
+  LoadDetail();
+  xSumMoney = 0;
+  var str = "";
+  var EidOrder = "";
+  var xCheck = 0;
+  xSumMoney = xSumMoney + xTotalPrice;
+  dbGiftOrder.where('RefID','==',gID)
+  .where('RefGift','==',GiftID)
+  .get().then((snapshot)=> {
+  snapshot.forEach(doc=> {
+      EidOrder = doc.id;
+      xCheck = 1;
+    });
+    if(GiftOrder==0) {
+      //alert("GiftOrder="+GiftOrder);
+      dbGiftOrder.doc(EidOrder).delete();
+    } else {
+      if(xCheck == 1) {
+        var xSumPrice = parseFloat(GiftOrder * GiftPrice);
+        dbGiftOrder.doc(EidOrder).update({
+          OrderGift : parseFloat(GiftOrder),
+          OrderPrice : parseFloat(GiftOrder*GiftPrice),
+          PointRedeem : parseFloat(GiftPrice),
+        });
+      } else {
+        dbGiftOrder.add({
+          RefID : gID,
+          RefGift : GiftID,
+          EmpID : xBMEmpID,
+          EmpName : xBMName,
+          EmpBR : xBranchName,
+          EmpZone : xZone,
+          EmpRH : xRH,
+          OrderGift : parseFloat(GiftOrder),
+          OrderPrice : parseFloat(GiftOrder*GiftPrice),
+          PointRedeem : parseFloat(GiftPrice),
+          StockName : NameGift
+        });
+      }
+    }
+  });
+  var h = 0;
+  var m = 0;
+  str += '<div class="btn-t22a" style="margin-top:15px;">บันทึกการสั่งจองของขวัญปีใหม่</div>';
+  str += '<table class="table table-bordered" class="font13" style="background-color: #fff; margin-top:20px;">';
+  str += '<thead><tr style="text-align: center;background-color: #93a3c1;">';
+  str += '<th scope="col">รายการ</th><th scope="col">จำนวน</th><th scope="col">ราคา</th></tr></thead><tbody>';
+  for (let h = 0; h < (xMaxGift); h++) {
+    if(document.getElementById("OrderGiftID"+h).value!=0) {
+      str += '<tr><th scope="row" style="text-align: left;">'+ document.getElementById("NameGift"+h).value +'</th>';
+      str += '<td style="text-align: right; font-weight: 600;">'+ document.getElementById("OrderGiftID"+h).value +'</td>';
+      str += '<td style="text-align: right; font-weight: 600;">'+ numberWithCommas(document.getElementById("OrderGiftID"+h).value * document.getElementById("UnitPrice"+h).value) +'</td></tr>';
+      m++;
+    }
+  }
+  str += '<tr><td style="text-align: center;font-weight: 600;background:#f1f1f1;">รวมยอดการสั่งจองของขวัญ</td><td colspan="2" style="text-align: right;font-weight: 600;background:#31e85b;">'+ numberWithCommas(xSumMoney) +'</td></tr>';
+  str += '<tr><td style="text-align: center;font-weight: 600;background:#f1f1f1;">งบประมาณที่ได้รับ</td><td colspan="2" style="text-align: right;font-weight: 600;background:#f68b1f;">'+ numberWithCommas(xBMAllocated) +'</td></tr>';
+  str += '<tr><td style="text-align: center;font-weight: 600;background:#f1f1f1;">งบประมาณคงเหลือ</td><td colspan="2" style="text-align: right;font-weight: 600;background:#0056ff;">'+ numberWithCommas(xBMAllocated-xSumMoney) +'</td></tr></tbody></table>';
+  str += '<div class="btn-t22a" style="margin-top:15px;">รายละเอียดเพิ่มเติม</div><div class="clr"></div>';
+  str += '<div style="text-align:left; margin:20px 0 2px 5px;">ที่ตั้งสาขา-ที่จัดส่งของขวัญ</div><center><textarea id="txtBM_Address" name="BM_Address" style="width:98%; height:80px;text-align:left;font-weight:600; color:#000;">'+ zBM_Address +'</textarea></center></div>';
+  str += '<div style="text-align:left; margin:10px 0 2px 5px;">โทรศัพท์ผู้จัดการสาขา</div><input type="text" id="txtBM_Phone" value="'+ zBM_Phone +'" style="text-align:left;"></div>';
+  str += '<div style="text-align:left; margin:10px 0 2px 5px;">ผู้รับสินค้า 1 (กรอกรหัสพนักงาน)</div><input type="text" id="txtEmpID_Staff1" value="'+ zEmpID_Staff1 +'" style="text-align:left;"></div>';
+  str += '<div style="text-align:left; margin:10px 0 2px 5px;">ผู้รับสินค้า 1 (กรอกชื่อ-นามสกุล)</div><input type="text" id="txtEmpName_Staff1" value="'+ zEmpName_Staff1 +'" style="text-align:left;"></div>';
+  str += '<div style="text-align:left; margin:10px 0 2px 5px;">ผู้รับสินค้า 1 (กรอกหมายเลขโทรศัพท์)</div><input type="text" id="txtPhone_Staff1" value="'+ zPhone_Staff1 +'" style="text-align:left;"></div>';
+  str += '<div style="text-align:left; margin:10px 0 2px 5px;">ผู้รับสินค้า 2 (กรอกรหัสพนักงาน)</div><input type="text" id="txtEmpID_Staff2" value="'+ zEmpID_Staff2 +'" style="text-align:left;"></div>';
+  str += '<div style="text-align:left; margin:10px 0 2px 5px;">ผู้รับสินค้า 2 (กรอกชื่อ-นามสกุล)</div><input type="text" id="txtEmpName_Staff2" value="'+ zEmpName_Staff2 +'" style="text-align:left;"></div>';
+  str += '<div style="text-align:left; margin:10px 0 2px 5px;">ผู้รับสินค้า 2 (กรอกหมายเลขโทรศัพท์)</div><input type="text" id="txtPhone_Staff2" value="'+ zPhone_Staff2 +'" style="text-align:left;"></div>';
+  str += '<div class="btn-z0" onclick="CloseAll()" style="margin:10px 10px 10px auto;min-width:50px;">ปิด<br>หน้าต่าง</div>';
+  str += '<div class="btn-z2" onclick="CloseAll()" style="margin:20px 10px 20px auto;">ทำการแก้ไข<br>ใหม่อีกครั้ง</div>';
+  str += '<div class="btn-z1" onclick="SaveDetail(\''+ gID +'\')" style="margin:20px 10px 20px auto;">บันทึกดร๊าฟ<br>ก่อนส่งโซน</div>';
+  str += '<div class="clr"></div>'
+  str += '<div class="btn-z3" onclick="SaveToZone(\''+ gID +'\')" style="width:56%;margin:-10px auto 20px auto;display:none" id="idSendZoneApprove">ส่งคำขอ<br>ให้โซนอนุมัติ</div>';
+  $("#DisplaySaveGift").html(str);
+  $("#idSendZoneApprove").addClass("disabledbutton");
+  var xBMmemo = 'บันทึกรายการแก้ไขรายการ ' + dateString + '<br>';
+ 
+  var delayInMilliseconds = 1000; //1 second
+  setTimeout(function() {
+    dbNewyearData.doc(gID).update({
+      BMStatus : 1,
+      BMBalance : parseFloat(xBMAllocated-xSumMoney),
+      TotalOrders : parseFloat(m),
+      TotalOrders : parseFloat(xTotalUnitPrice),
+      UseBudget : parseFloat(xTotalPrice),
+      BM_Memo : xBMmemo
+    });
+  }, delayInMilliseconds);
+  document.getElementById('id01').style.display='block';
+}
+ 
+ 
+function SaveToZone() {
+  var h = 0;
+  var m = 0;
+  dbNewyearData.doc(gID).update({
+    BMStatus : 2
+  });
+  str += '<div class="btn-t22a" style="margin-top:15px;">นำส่งรายการสั่งซื้อให้โซนอนุมัติ</div>';
+  str += '<table class="table table-bordered" class="font13" style="background-color: #fff; margin-top:20px;">';
+  str += '<thead><tr style="text-align: center;background-color: #93a3c1;">';
+  str += '<th scope="col">รายการ</th><th scope="col">จำนวน</th><th scope="col">ราคา</th></tr></thead><tbody>';
+  for (let h = 0; h < (xMaxGift); h++) {
+    if(document.getElementById("OrderGiftID"+h).value!=0) {
+      str += '<tr><th scope="row" style="text-align: left;">'+ document.getElementById("NameGift"+h).value +'</th>';
+      str += '<td style="text-align: right; font-weight: 600;">'+ document.getElementById("OrderGiftID"+h).value +'</td>';
+      str += '<td style="text-align: right; font-weight: 600;">'+ numberWithCommas(document.getElementById("OrderGiftID"+h).value * document.getElementById("UnitPrice"+h).value) +'</td></tr>';
+      m++;
+    }
+  }
+  str += '<tr><td style="text-align: center;font-weight: 600;background:#f1f1f1;">รวมทั้งหมด</td><td colspan="2" style="text-align: right;font-weight: 600;background:#31e85b;">'+ numberWithCommas(xSumMoney) +'</td></tr>';
+  str += '<tr><td style="text-align: center;font-weight: 600;background:#f1f1f1;">งบประมาณที่ได้รับ</td><td colspan="2" style="text-align: right;font-weight: 600;background:#f68b1f;">'+ numberWithCommas(xBMAllocated) +'</td></tr>';
+  str += '<tr><td style="text-align: center;font-weight: 600;background:#f1f1f1;">งบประมาณคงเหลือ</td><td colspan="2" style="text-align: right;font-weight: 600;background:#0056ff;">'+ numberWithCommas(xBMAllocated-xSumMoney) +'</td></tr></tbody></table>';
+  str += '<div class="txtmsg">ขณะนี้รายการการจัดซื้อของขวัญของสาขา อยู่ระหว่างการอนุมัติโดยโซนที่ดูแลสาขาของท่าน กรุณารอการอนุมัติ</div>'
+  str += '<center><div class="btn-t1" onclick="GotoOrder()">ปิดหน้าต่างนี้</div></center>';
+  $("#DisplaySaveToZone").html(str);
+  document.getElementById('id02').style.display='block';
+}
+ 
+ 
+function GotoOrder() {
+  location.href = "home.html";
+}
+ 
+ 
+function GotoMyOrder() {
+  location.href = "ordergift.html?gid="+gID;
+}
+ 
+function SaveDetail() {
+  var dBM_Address = document.getElementById("txtBM_Address").value;
+  var dBM_Phone = document.getElementById("txtBM_Phone").value;
+  var dEmpID_Staff1 = document.getElementById("txtEmpID_Staff1").value;
+  var dEmpName_Staff1 = document.getElementById("txtEmpName_Staff1").value;
+  var dPhone_Staff1 = document.getElementById("txtPhone_Staff1").value;
+  var dEmpID_Staff2 = document.getElementById("txtEmpID_Staff2").value;
+  var dEmpName_Staff2 = document.getElementById("txtEmpName_Staff2").value;
+  var dPhone_Staff2 = document.getElementById("txtPhone_Staff2").value;
+  if(dBM_Address=="" || dBM_Phone=="" || dEmpID_Staff1=="" || dEmpName_Staff1=="" || dPhone_Staff1=="" || dEmpID_Staff2=="" || dEmpName_Staff2=="" || dPhone_Staff2=="" ) {
+    alert("คุณยังกรอกข้อมูลไม่ครบถ้วน");
+  } else {
+    dbNewyearData.doc(gID).update({
+      BM_Address : document.getElementById("txtBM_Address").value,
+      BM_Phone : document.getElementById("txtBM_Phone").value,
+      EmpID_Staff1 : document.getElementById("txtEmpID_Staff1").value,
+      EmpName_Staff1 : document.getElementById("txtEmpName_Staff1").value,
+      Phone_Staff1 : document.getElementById("txtPhone_Staff1").value,
+      EmpID_Staff2 : document.getElementById("txtEmpID_Staff2").value,
+      EmpName_Staff2 : document.getElementById("txtEmpName_Staff2").value,
+      Phone_Staff2 : document.getElementById("txtPhone_Staff2").value
+    });
+ 
+    var xText = "";
+    xText += '<div class="btn-t22a" style="margin:30px auto; background:#28a745 !important; border:2px solid #52c76c !important;">ยืนยันการบันทึกรายการของคุณ</div>';
+    xText += '<div>ระบบได้ทำการบันทึกรายการนี้เรียบร้อยแล้ว<br>หากไม่มีการแก้ไขรายการให้ทำการ<br><br>กดปุ่ม ... <b>ส่งคำขอให้โซนอนุมัติ</b><br><br><font color="#ff0000"><b>ซึ่งจะมีผลให้สาขา<br>ไม่สามารถทำการแก้ไขรายการได้แล้ว</b></font></div>';
+    xText += '<div class="clr"></div>';
+    xText += '<div class="btn-t2" onclick="XLoadDetail()" style="margin:25px auto;">ปิดหน้าต่างนี้</div>';
+    $("#WarningText").html(xText);
+    document.getElementById('id04').style.display='block';
+ 
+ 
+    //$('#idSendZoneApprove').removeAttr('disabled');
+    document.getElementById('idSendZoneApprove').style.display='block';
+  }
+}
+ 
+function XLoadDetail() {
+  document.getElementById('id04').style.display='none';
+  LoadDetail();
+}
+ 
+function addCommas(nStr) {
+  nStr += '';
+  x = nStr.split('.');
+  x1 = x[0];
+  x2 = x.length > 1 ? '.' + x[1] : '';
+  var rgx = /(\d+)(\d{3})/;
+  while (rgx.test(x1)) {
+    x1 = x1.replace(rgx, '$1' + ',' + '$2');
+  }
+  return x1 + x2;
+}
+ 
+function numberWithCommas(num) {
+  var valueString=num; //can be 1500.0 or 1500.00
+  var amount=parseFloat(valueString).toFixed(2);
+  return formattedString= amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+ 
+function CloseAll() {
+  document.getElementById('ShowNav').style.display='block';
+  document.getElementById('id01').style.display='none';
+  document.getElementById('id02').style.display='none';
+  document.getElementById('id03').style.display='none';
+  document.getElementById('id04').style.display='none';
+}
+ 
